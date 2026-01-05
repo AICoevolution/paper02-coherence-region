@@ -1,0 +1,5 @@
+{
+  "backend": "qwen",
+  "model": null,
+  "dimension": 1024
+}

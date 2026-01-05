@@ -1,0 +1,5 @@
+{
+  "backend": "cohere-v3",
+  "model": null,
+  "dimension": 1024
+}

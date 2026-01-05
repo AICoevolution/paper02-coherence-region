@@ -1,0 +1,101 @@
+{
+  "correlations": {
+    "highd_R_vs_top1_unique_symbols": {
+      "observed_r": -0.8794640262460597,
+      "p_value": 0.00035954331084318413,
+      "ci_95_lower": -0.9756244051871256,
+      "ci_95_upper": -0.5537469597739968,
+      "n": 11,
+      "paper_claim": "r = -0.88 (paper)"
+    },
+    "highd_R_vs_topk_unique_symbols": {
+      "observed_r": -0.8005749059277069,
+      "p_value": 0.003073126065088262,
+      "ci_95_lower": -0.9758857742053917,
+      "ci_95_upper": -0.24292553497778246,
+      "n": 11,
+      "paper_claim": "r = -0.80 (paper)"
+    },
+    "highd_R_vs_top1_entropy_bits": {
+      "observed_r": -0.7489407098460393,
+      "p_value": 0.007989871676443874,
+      "ci_95_lower": -0.93455136618635,
+      "ci_95_upper": -0.33463305233120566,
+      "n": 11,
+      "paper_claim": "r = -0.75 (paper)"
+    },
+    "highd_R_vs_topk_entropy_bits": {
+      "observed_r": -0.631340384514993,
+      "p_value": 0.0372236814157083,
+      "ci_95_lower": -0.8776906076795794,
+      "ci_95_upper": -0.037954364543859066,
+      "n": 11,
+      "paper_claim": "r = -0.63 (paper)"
+    },
+    "cross_backend_summary": {
+      "min_r": -0.9334786183792709,
+      "max_r": -0.5841599641478209,
+      "mean_r": -0.8276020890353493,
+      "n_backends": 13
+    }
+  },
+  "velocity_comparisons": {
+    "nomic": {
+      "structured_n": 102,
+      "structured_mean": 23.673562598405017,
+      "structured_std": 14.97386453988375,
+      "unstructured_n": 100,
+      "unstructured_mean": 54.008763568138136,
+      "unstructured_std": 33.93817108158901,
+      "mann_whitney_u": 2367.0,
+      "mann_whitney_p": 4.763594623555077e-11,
+      "permutation_diff": 30.33520096973312,
+      "permutation_p": 0.0,
+      "cohens_d": 1.1546320400855679
+    },
+    "bge-m3": {
+      "structured_n": 102,
+      "structured_mean": 18.194249950267764,
+      "structured_std": 11.655938339484639,
+      "unstructured_n": 100,
+      "unstructured_mean": 26.758654229587652,
+      "unstructured_std": 16.111346070620904,
+      "mann_whitney_u": 3477.0,
+      "mann_whitney_p": 9.385181203931233e-05,
+      "permutation_diff": 8.564404279319888,
+      "permutation_p": 0.0001,
+      "cohens_d": 0.6069974132950221
+    },
+    "google": {
+      "structured_n": 102,
+      "structured_mean": 19.728732980577487,
+      "structured_std": 12.439230771404674,
+      "unstructured_n": 100,
+      "unstructured_mean": 25.090491911000743,
+      "unstructured_std": 14.33252381107006,
+      "mann_whitney_u": 3907.0,
+      "mann_whitney_p": 0.004094464627175272,
+      "permutation_diff": 5.361758930423257,
+      "permutation_p": 0.0059,
+      "cohens_d": 0.3978498850205908
+    }
+  },
+  "stationarity": {
+    "n_conversations": 11,
+    "mean_r": 0.010678256713391709,
+    "significant_trends": 6,
+    "t_stat": 0.3377353584703238,
+    "p_overall": 0.7425451869469796
+  },
+  "paper_text": {
+    "section_5_2": "**Cone-ness and symbol diversity are strongly anticorrelated.** Across all backends in centered mode, higher trajectory concentration ($R$) correlates negatively with symbol diversity. For example, in Google embeddings (centered mode, N=11), we observe:\n\n- `top1_unique_symbols` vs. `highd_R`: $r = -0.88$ [95% CI: -0.98, -0.55], $p < 0.001$\n- `topk_unique_symbols` vs. `highd_R`: $r = -0.80$ [95% CI: -0.98, -0.24], $p < 0.01$\n- `top1_entropy_bits` vs. `highd_R`: $r = -0.75$ [95% CI: -0.93, -0.33], $p < 0.01$\n- `topk_entropy_bits` vs. `highd_R`: $r = -0.63$ [95% CI: -0.88, -0.04], $p < 0.05$\n\nThis pattern\u2014fewer distinct symbols correlating with tighter cones\u2014holds across all backends, with correlation magnitudes typically in the range $|r| = 0.6$\u2013$0.9$ for diversity metrics (mean $r = -0.83$ across 13 backends).",
+    "section_5_5": "LC1 exhibits markedly higher velocity than structured baselines. In Nomic embeddings (centered mode):\n\n- Structured (B09, B10): mean velocity = 23.7\u00b0 (SD = 15.0\u00b0, N = 102 turns)\n- Unstructured (LC1): mean velocity = 54.0\u00b0 (SD = 33.9\u00b0, N = 100 turns)\n\nThis difference is statistically significant (Mann-Whitney $U = 2367$, $p < 0.001$; permutation test $p < 0.001$) with a large effect size (Cohen's $d = 1.15$). Similar patterns hold across backends.",
+    "section_6_2_caveat": "**Non-stationarity caveat:** Center-of-gravity analysis assumes approximately stationary dynamics. Across 11 conversations, we tested for trends in velocity over conversation turns. The mean correlation between turn index and velocity was $r = 0.01$ (not significant, $p = 0.743$). While no strong systematic trend was detected, individual conversations may exhibit phase-dependent dynamics that aggregate statistics obscure."
+  },
+  "metadata": {
+    "n_bootstrap": 10000,
+    "random_seed": 42,
+    "traces_file": "C:\\Users\\User\\Desktop\\JJJS\\AICE\\website\\MirrorMind\\_reports\\Papers\\paper02\\validation\\outputs\\symbol_geometry\\sidecar_sweeps\\sweep_20260101_001930\\conversation_traces\\analysis_conversation_pack\\run_20260101_013929\\traces_metrics.csv",
+    "dynamics_file": "C:\\Users\\User\\Desktop\\JJJS\\AICE\\website\\MirrorMind\\_reports\\Papers\\paper02\\validation\\outputs\\manifold_dynamics.csv"
+  }
+}

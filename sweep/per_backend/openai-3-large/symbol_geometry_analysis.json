@@ -1,0 +1,454 @@
+{
+  "by_mode": {
+    "raw": {
+      "mode": "raw",
+      "angular_distribution": {
+        "min_angle": 31.068899514612397,
+        "max_angle": 76.42251319693452,
+        "mean_angle": 66.50147251455677,
+        "median_angle": 66.85513594523685,
+        "std_angle": 3.4553717651222584,
+        "percentiles": {
+          "5%": 60.54193539486119,
+          "25%": 64.57958343272503,
+          "50%": 66.85513594523685,
+          "75%": 68.82752063132949,
+          "95%": 71.39188787636041
+        }
+      },
+      "random_baseline": {
+        "n_symbols": 180,
+        "embedding_dim": 3072,
+        "baseline_samples": 25,
+        "seed": 1337,
+        "observed": {
+          "pairwise_angle_mean_deg": 66.50147251455677,
+          "pairwise_angle_std_deg": 3.4553717651222584,
+          "mean_resultant_length_rbar": 0.6334918653013617,
+          "kappa_estimate": 3250.1613501603547
+        },
+        "random_baseline": {
+          "pairwise_angle_mean_deg": {
+            "mean": 89.99913457600802,
+            "std": 0.0077788968950186325,
+            "min": 89.98415381446725,
+            "max": 90.01635799553854
+          },
+          "pairwise_angle_std_deg": {
+            "mean": 1.033276639212823,
+            "std": 0.005948425961848298,
+            "min": 1.021907748978655,
+            "max": 1.0444694845675393
+          },
+          "mean_resultant_length_rbar": {
+            "mean": 0.07463073728137597,
+            "std": 0.0009072354038359096,
+            "min": 0.07260656019583672,
+            "max": 0.07635811031213145
+          },
+          "kappa_estimate": {
+            "mean": 230.54988587767338,
+            "std": 2.833725431807616,
+            "min": 224.22904121886668,
+            "max": 235.94737523480666
+          },
+          "percentile_of_observed": {
+            "pairwise_angle_mean_deg": 0.0,
+            "pairwise_angle_std_deg": 100.0,
+            "mean_resultant_length_rbar": 100.0
+          }
+        },
+        "distribution_tests": {
+          "ks_test_observed_vs_random_sample0": {
+            "statistic": 1.0,
+            "pvalue": 0.0
+          }
+        }
+      },
+      "cluster_sweep": {
+        "3": {
+          "cluster_sizes": [
+            163,
+            11,
+            6
+          ],
+          "gini": 0.5814814814814815,
+          "max_cluster_fraction": 0.9055555555555556,
+          "inv_simpson_effective_clusters": 1.212302626655691
+        },
+        "4": {
+          "cluster_sizes": [
+            161,
+            11,
+            6,
+            2
+          ],
+          "gini": 0.6694444444444444,
+          "max_cluster_fraction": 0.8944444444444445,
+          "inv_simpson_effective_clusters": 1.2422360248447204
+        },
+        "5": {
+          "cluster_sizes": [
+            127,
+            34,
+            11,
+            6,
+            2
+          ],
+          "gini": 0.6177777777777778,
+          "max_cluster_fraction": 0.7055555555555556,
+          "inv_simpson_effective_clusters": 1.857159234208414
+        },
+        "6": {
+          "cluster_sizes": [
+            90,
+            37,
+            34,
+            11,
+            6,
+            2
+          ],
+          "gini": 0.5148148148148148,
+          "max_cluster_fraction": 0.5,
+          "inv_simpson_effective_clusters": 3.003893936584462
+        },
+        "8": {
+          "cluster_sizes": [
+            64,
+            37,
+            26,
+            20,
+            14,
+            11,
+            6,
+            2
+          ],
+          "gini": 0.4444444444444444,
+          "max_cluster_fraction": 0.35555555555555557,
+          "inv_simpson_effective_clusters": 4.697013627138301
+        },
+        "10": {
+          "cluster_sizes": [
+            37,
+            33,
+            31,
+            26,
+            14,
+            14,
+            11,
+            6,
+            6,
+            2
+          ],
+          "gini": 0.37444444444444447,
+          "max_cluster_fraction": 0.20555555555555555,
+          "inv_simpson_effective_clusters": 6.917164816396243
+        },
+        "12": {
+          "cluster_sizes": [
+            37,
+            31,
+            27,
+            26,
+            14,
+            14,
+            6,
+            6,
+            6,
+            6,
+            5,
+            2
+          ],
+          "gini": 0.41574074074074074,
+          "max_cluster_fraction": 0.20555555555555555,
+          "inv_simpson_effective_clusters": 7.534883720930233
+        }
+      },
+      "role_geometry_unique": {
+        "centroid_angles_deg": {
+          "from-through": 15.089023692040467,
+          "from-to": 2.097261672205691,
+          "from-observation": 13.90067535477377,
+          "from-result": 11.70206624932028,
+          "through-to": 14.90281726931168,
+          "through-observation": 14.997777173179482,
+          "through-result": 17.478208802126957,
+          "to-observation": 13.94903207848853,
+          "to-result": 12.062232606989994,
+          "observation-result": 14.225971580983675
+        },
+        "role_permutation_test": {
+          "n_permutations": 2000,
+          "seed": 1337,
+          "role_set_sizes_unique": {
+            "from": 57,
+            "through": 55,
+            "to": 56,
+            "observation": 57,
+            "result": 54
+          },
+          "observed_angles_deg": {
+            "from-to": 2.097261672205691,
+            "through-result": 17.478208802126957,
+            "observation-result": 14.225971580983675
+          },
+          "null_distribution_summary": {
+            "from-to": {
+              "mean": 10.826683226163391,
+              "std": 0.7315102939312886,
+              "min": 8.844784175490801,
+              "max": 13.684169293400611
+            },
+            "through-result": {
+              "mean": 11.104603741454529,
+              "std": 0.7545400888167663,
+              "min": 8.892414599509232,
+              "max": 14.058135586702038
+            },
+            "observation-result": {
+              "mean": 10.965040811979165,
+              "std": 0.715026182933509,
+              "min": 8.753501047825546,
+              "max": 13.805025410215809
+            }
+          },
+          "pvalue_unusually_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 1.0
+          },
+          "pvalue_unusually_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0
+          }
+        }
+      }
+    },
+    "centered": {
+      "mode": "centered",
+      "angular_distribution": {
+        "min_angle": 41.152663305840875,
+        "max_angle": 102.7259143856565,
+        "mean_angle": 90.31346771494508,
+        "median_angle": 90.96201345752532,
+        "std_angle": 4.480936272872528,
+        "percentiles": {
+          "5%": 82.41324937069463,
+          "25%": 88.16663911026565,
+          "50%": 90.96201345752532,
+          "75%": 93.29980419185304,
+          "95%": 96.09866042989448
+        }
+      },
+      "random_baseline": {
+        "n_symbols": 180,
+        "embedding_dim": 3072,
+        "baseline_samples": 25,
+        "seed": 1337,
+        "observed": {
+          "pairwise_angle_mean_deg": 90.31346771494508,
+          "pairwise_angle_std_deg": 4.480936272872528,
+          "mean_resultant_length_rbar": 0.0033596664669043974,
+          "kappa_estimate": 10.321011845372105
+        },
+        "random_baseline": {
+          "pairwise_angle_mean_deg": {
+            "mean": 89.99913457600802,
+            "std": 0.0077788968950186325,
+            "min": 89.98415381446725,
+            "max": 90.01635799553854
+          },
+          "pairwise_angle_std_deg": {
+            "mean": 1.033276639212823,
+            "std": 0.005948425961848298,
+            "min": 1.021907748978655,
+            "max": 1.0444694845675393
+          },
+          "mean_resultant_length_rbar": {
+            "mean": 0.07463073728137597,
+            "std": 0.0009072354038359096,
+            "min": 0.07260656019583672,
+            "max": 0.07635811031213145
+          },
+          "kappa_estimate": {
+            "mean": 230.54988587767338,
+            "std": 2.833725431807616,
+            "min": 224.22904121886668,
+            "max": 235.94737523480666
+          },
+          "percentile_of_observed": {
+            "pairwise_angle_mean_deg": 100.0,
+            "pairwise_angle_std_deg": 100.0,
+            "mean_resultant_length_rbar": 0.0
+          }
+        },
+        "distribution_tests": {
+          "ks_test_observed_vs_random_sample0": {
+            "statistic": 0.37256362507759155,
+            "pvalue": 0.0
+          }
+        }
+      },
+      "cluster_sweep": {
+        "3": {
+          "cluster_sizes": [
+            85,
+            52,
+            43
+          ],
+          "gini": 0.15555555555555559,
+          "max_cluster_fraction": 0.4722222222222222,
+          "inv_simpson_effective_clusters": 2.7508914926133468
+        },
+        "4": {
+          "cluster_sizes": [
+            73,
+            52,
+            43,
+            12
+          ],
+          "gini": 0.2666666666666667,
+          "max_cluster_fraction": 0.40555555555555556,
+          "inv_simpson_effective_clusters": 3.2315978456014367
+        },
+        "5": {
+          "cluster_sizes": [
+            53,
+            52,
+            43,
+            20,
+            12
+          ],
+          "gini": 0.2533333333333333,
+          "max_cluster_fraction": 0.29444444444444445,
+          "inv_simpson_effective_clusters": 4.09815330129016
+        },
+        "6": {
+          "cluster_sizes": [
+            52,
+            43,
+            43,
+            20,
+            12,
+            10
+          ],
+          "gini": 0.3018518518518518,
+          "max_cluster_fraction": 0.28888888888888886,
+          "inv_simpson_effective_clusters": 4.598353675844451
+        },
+        "8": {
+          "cluster_sizes": [
+            52,
+            37,
+            34,
+            20,
+            12,
+            10,
+            9,
+            6
+          ],
+          "gini": 0.3763888888888889,
+          "max_cluster_fraction": 0.28888888888888886,
+          "inv_simpson_effective_clusters": 5.409015025041737
+        },
+        "10": {
+          "cluster_sizes": [
+            37,
+            31,
+            26,
+            21,
+            20,
+            12,
+            10,
+            9,
+            8,
+            6
+          ],
+          "gini": 0.31444444444444447,
+          "max_cluster_fraction": 0.20555555555555555,
+          "inv_simpson_effective_clusters": 7.584269662921348
+        },
+        "12": {
+          "cluster_sizes": [
+            31,
+            26,
+            26,
+            20,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            8,
+            6
+          ],
+          "gini": 0.29074074074074074,
+          "max_cluster_fraction": 0.17222222222222222,
+          "inv_simpson_effective_clusters": 9.278350515463917
+        }
+      },
+      "role_geometry_unique": {
+        "centroid_angles_deg": {
+          "from-through": 112.36129216569738,
+          "from-to": 14.955914303110458,
+          "from-observation": 108.26235787724353,
+          "from-result": 81.26652749205394,
+          "through-to": 110.66912330864528,
+          "through-observation": 103.02129499505146,
+          "through-result": 122.83836997628195,
+          "to-observation": 109.05705669083062,
+          "to-result": 84.47538802151965,
+          "observation-result": 97.69989788463589
+        },
+        "role_permutation_test": {
+          "n_permutations": 2000,
+          "seed": 1337,
+          "role_set_sizes_unique": {
+            "from": 57,
+            "through": 55,
+            "to": 56,
+            "observation": 57,
+            "result": 54
+          },
+          "observed_angles_deg": {
+            "from-to": 14.955914303110458,
+            "through-result": 122.83836997628195,
+            "observation-result": 97.69989788463589
+          },
+          "null_distribution_summary": {
+            "from-to": {
+              "mean": 90.09078851105774,
+              "std": 6.006029107494141,
+              "min": 68.5777729119142,
+              "max": 108.21939952955636
+            },
+            "through-result": {
+              "mean": 89.94927028471501,
+              "std": 6.2143544992725595,
+              "min": 68.1914551989199,
+              "max": 110.8633841166156
+            },
+            "observation-result": {
+              "mean": 89.86882305628637,
+              "std": 5.965984963595779,
+              "min": 71.4820432890283,
+              "max": 109.17499006941885
+            }
+          },
+          "pvalue_unusually_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.9035
+          },
+          "pvalue_unusually_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0965
+          }
+        }
+      }
+    }
+  }
+}

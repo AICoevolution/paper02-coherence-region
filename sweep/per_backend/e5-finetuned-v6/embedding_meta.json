@@ -1,0 +1,5 @@
+{
+  "backend": "e5-finetuned-v6",
+  "model": null,
+  "dimension": 768
+}

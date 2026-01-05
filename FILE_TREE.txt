@@ -1,0 +1,108 @@
+Folder PATH listing
+Volume serial number is 7AB9-01C0
+C:.
+|   FILE_TREE.txt
+|   README.md
+|   
++---conversations
+|       cone_explanations.json
+|       cross_model_agreement.json
+|       run_meta.json
+|       traces_metrics.csv
+|       traces_metrics.json
+|       
++---dynamics
+|       manifold_dynamics.csv
+|       statistical_analysis_results.json
+|       
++---scripts
+|       analyze_conversation_geometry_pack.py
+|       analyze_symbol_geometry.py
+|       compute_statistical_tests.py
+|       export_manifold_dynamics_csv.py
+|       generate_paper_figures.py
+|       
++---sweep
+|   |   rosetta_dataset.json
+|   |   run_meta.json
+|   |   sweep_summary.json
+|   |   symbols.json
+|   |   
+|   \---per_backend
+|       +---bge-m3
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---cohere-v3
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---e5-finetuned-v6
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---google
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---jina-v3
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---mistral-embed
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---nomic
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---openai-3-large
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---openai-3-small
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---openai-ada-002
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---qwen
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       +---s128
+|       |       embedding_meta.json
+|       |       symbol_geometry_analysis.json
+|       |       
+|       \---voyage-large-2-instruct
+|               embedding_meta.json
+|               symbol_geometry_analysis.json
+|               
+\---visualizations
+    |   alignment_hypersphere.html
+    |   symbol_geometry_rosetta.html
+    |   
+    \---data
+            B9_clean_nomic.json
+            B9_clean_openai.json
+            B9_clean_s128.json
+            B9_confident_wrong_nomic.json
+            B9_confident_wrong_openai.json
+            B9_confident_wrong_s128.json
+            B9_severe_nomic.json
+            B9_severe_openai.json
+            B9_severe_s128.json
+            index.json
+            LC1_clean_nomic.json
+            LC1_clean_openai.json
+            LC1_clean_s128.json
+            LC1_mild_nomic.json
+            LC1_mild_openai.json
+            LC1_mild_s128.json
+            LC1_severe_nomic.json
+            LC1_severe_openai.json
+            LC1_severe_s128.json
+            

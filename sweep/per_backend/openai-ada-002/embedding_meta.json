@@ -1,0 +1,5 @@
+{
+  "backend": "openai-ada-002",
+  "model": null,
+  "dimension": 1536
+}

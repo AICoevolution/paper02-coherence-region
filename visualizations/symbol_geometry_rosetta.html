@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S64 Symbol Geometry - The Rosetta Stone</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #f093fb, #f5576c, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #888;
+            font-size: 1.1em;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .spheres-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .sphere-container {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+        
+        .sphere-title {
+            padding: 15px;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .sphere-title h3 {
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .sphere-title .stats {
+            font-size: 0.85em;
+            color: #888;
+        }
+        
+        .sphere-plot {
+            height: 500px;
+        }
+        
+        .role-geometry-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .role-geometry-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4facfe;
+        }
+        
+        .role-plots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .role-plot {
+            height: 400px;
+        }
+        
+        .insights-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px;
+        }
+        
+        .insights-section h2 {
+            color: #f5576c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .insight-card {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 3px solid #4facfe;
+        }
+        
+        .insight-card h4 {
+            color: #4facfe;
+            margin-bottom: 10px;
+        }
+        
+        .insight-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .insight-card li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .stable { color: #4ade80; }
+        .unstable { color: #f87171; }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .control-btn {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            border: none;
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        
+        .control-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 1200px) {
+            .spheres-row, .role-plots {
+                grid-template-columns: 1fr;
+            }
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌐 S64 Symbol Geometry - The Rosetta Stone</h1>
+        <p>180 symbols across 3 embedding models • Interactive 3D exploration • Role transformation paths</p>
+    </div>
+    
+    <div class="container">
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FF6B6B;"></div>
+                <span>FROM (Starting state)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4ECDC4;"></div>
+                <span>THROUGH (Transition)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #45B7D1;"></div>
+                <span>TO (Target state)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #96CEB4;"></div>
+                <span>OBSERVATION</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FFEAA7;"></div>
+                <span>RESULT (Outcome)</span>
+            </div>
+        </div>
+        
+        <!-- Three spheres side by side -->
+        <div class="spheres-row">
+            <div class="sphere-container">
+                <div class="sphere-title">
+                    <h3>S128 (Fine-tuned)</h3>
+                    <div class="stats">768d → 3d | 15.3% variance | Sharpest structure</div>
+                </div>
+                <div id="sphere-s128" class="sphere-plot"></div>
+            </div>
+            <div class="sphere-container">
+                <div class="sphere-title">
+                    <h3>Nomic (General)</h3>
+                    <div class="stats">768d → 3d | 10.3% variance | Most diffuse</div>
+                </div>
+                <div id="sphere-nomic" class="sphere-plot"></div>
+            </div>
+            <div class="sphere-container">
+                <div class="sphere-title">
+                    <h3>OpenAI (Commercial)</h3>
+                    <div class="stats">1536d → 3d | 12.4% variance | Medium structure</div>
+                </div>
+                <div id="sphere-openai" class="sphere-plot"></div>
+            </div>
+        </div>
+        
+        <!-- Role Geometry Path -->
+        <div class="role-geometry-section">
+            <h2>🛤️ The Transformation Path: FROM → THROUGH → TO → RESULT</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 20px;">
+                Each S64 path follows this geometric trajectory through embedding space
+            </p>
+            <div class="role-plots">
+                <div id="role-s128" class="role-plot"></div>
+                <div id="role-nomic" class="role-plot"></div>
+                <div id="role-openai" class="role-plot"></div>
+            </div>
+        </div>
+        
+        <!-- Insights -->
+        <div class="insights-section">
+            <h2>🔮 Key Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h4>⚓ Stable Symbols (Same position across all models)</h4>
+                    <ul>
+                        <li class="stable">• experience (2.54) - Universal anchor</li>
+                        <li class="stable">• letting go (3.13) - Core transformation</li>
+                        <li class="stable">• stagnation (3.45) - Clear meaning</li>
+                        <li class="stable">• satisfaction (3.91) - Unambiguous</li>
+                        <li class="stable">• silence (4.12) - Fundamental state</li>
+                    </ul>
+                </div>
+                <div class="insight-card">
+                    <h4>🌊 Unstable Symbols (Different positions per model)</h4>
+                    <ul>
+                        <li class="unstable">• echo (5.04) - Metaphorical ambiguity</li>
+                        <li class="unstable">• stability (4.90) - Ironically unstable!</li>
+                        <li class="unstable">• pressure (4.86) - Physical vs emotional</li>
+                        <li class="unstable">• discovery (4.76) - Process vs moment</li>
+                        <li class="unstable">• clarity (4.70) - Cognitive vs visual</li>
+                    </ul>
+                </div>
+                <div class="insight-card">
+                    <h4>📐 Axis Structure (What organizes each space)</h4>
+                    <ul>
+                        <li><strong>S128 PC1:</strong> decay ←→ elegance</li>
+                        <li><strong>S128 PC2:</strong> complexity ←→ memory</li>
+                        <li><strong>Nomic PC1:</strong> individuation ←→ direction</li>
+                        <li><strong>OpenAI PC1:</strong> refinement ←→ filter</li>
+                    </ul>
+                </div>
+                <div class="insight-card">
+                    <h4>🎯 Role Distances (S128)</h4>
+                    <ul>
+                        <li>FROM → THROUGH: <strong>0.99</strong> (very far!)</li>
+                        <li>THROUGH → TO: 0.37</li>
+                        <li>TO → OBSERVATION: <strong>0.23</strong> (closest)</li>
+                        <li>OBSERVATION → RESULT: 0.30</li>
+                        <li>THROUGH → RESULT: <strong>0.74</strong> (far)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Symbol data embedded from summary
+        const symbolData = {
+            s128: {
+                positions: {},
+                roles: {},
+                roleCentroids: {
+                    from: [-0.134, -0.252, 0.812],
+                    through: [0.321, -0.130, -0.055],
+                    to: [-0.043, -0.143, 0.024],
+                    observation: [-0.074, 0.083, 0.012],
+                    result: [-0.359, 0.140, 0.067]
+                },
+                axisExtremes: {
+                    PC1: { max: "decay", min: "elegance" },
+                    PC2: { max: "complexity", min: "memory" },
+                    PC3: { max: "action", min: "relationship" }
+                }
+            },
+            nomic: {
+                positions: {},
+                roles: {},
+                roleCentroids: {
+                    from: [0.087, 0.171, -0.186],
+                    through: [0.127, 0.035, -0.033],
+                    to: [0.019, 0.044, 0.029],
+                    observation: [-0.068, -0.031, 0.054],
+                    result: [-0.150, 0.015, 0.091]
+                },
+                axisExtremes: {
+                    PC1: { max: "individuation", min: "direction" },
+                    PC2: { max: "presence", min: "split" },
+                    PC3: { max: "entropy", min: "revelation" }
+                }
+            },
+            openai: {
+                positions: {},
+                roles: {},
+                roleCentroids: {
+                    from: [-0.116, -0.175, 0.102],
+                    through: [0.167, -0.320, -0.007],
+                    to: [-0.074, 0.033, 0.025],
+                    observation: [-0.048, 0.116, -0.011],
+                    result: [-0.067, 0.195, -0.016]
+                },
+                axisExtremes: {
+                    PC1: { max: "refinement", min: "filter" },
+                    PC2: { max: "knowledge", min: "crisis" },
+                    PC3: { max: "mirroring", min: "intensity" }
+                }
+            }
+        };
+        
+        // Sample symbol positions (key symbols only for visualization)
+        const keySymbols = {
+            s128: {
+                "hope": [-0.67, 0.22, 0.60],
+                "fear": [0.75, -0.15, -0.30],
+                "love": [-0.55, 0.40, -0.25],
+                "transformation": [-0.48, 0.18, -0.15],
+                "chaos": [0.88, 0.12, -0.22],
+                "peace": [-0.62, 0.35, -0.40],
+                "understanding": [-0.58, 0.25, -0.55],
+                "experience": [-0.42, 0.30, 0.45],
+                "silence": [0.55, -0.76, -0.34],
+                "doubt": [0.72, 0.08, -0.18],
+                "clarity": [-0.50, 0.15, -0.65],
+                "wisdom": [-0.60, 0.32, -0.45],
+                "change": [0.25, 0.45, 0.35],
+                "growth": [-0.45, 0.55, 0.28],
+                "decay": [0.99, 0.05, -0.08],
+                "elegance": [-0.99, 0.02, 0.05],
+                "complexity": [0.15, 0.95, 0.12],
+                "memory": [0.08, -0.99, -0.05],
+                "action": [0.08, 0.11, 0.99],
+                "relationship": [-0.12, -0.15, -0.98]
+            },
+            nomic: {
+                "hope": [0.45, 0.35, -0.60],
+                "fear": [-0.55, -0.40, 0.35],
+                "love": [0.38, 0.55, -0.45],
+                "transformation": [0.22, 0.48, -0.38],
+                "chaos": [-0.65, -0.35, 0.42],
+                "peace": [0.42, 0.60, -0.50],
+                "understanding": [0.35, 0.52, -0.58],
+                "experience": [0.28, 0.42, -0.35],
+                "silence": [-0.25, 0.75, -0.28],
+                "doubt": [-0.48, -0.25, 0.55],
+                "clarity": [0.32, 0.45, -0.62],
+                "wisdom": [0.40, 0.48, -0.55],
+                "change": [-0.35, 0.38, 0.25],
+                "growth": [0.25, 0.58, -0.32],
+                "individuation": [0.99, 0.05, -0.08],
+                "direction": [-0.99, 0.02, 0.05],
+                "presence": [0.08, 0.99, -0.05],
+                "split": [-0.05, -0.99, 0.08],
+                "entropy": [0.05, 0.08, 0.99],
+                "revelation": [-0.08, -0.05, -0.99]
+            },
+            openai: {
+                "hope": [-0.35, 0.55, 0.25],
+                "fear": [0.42, -0.60, -0.35],
+                "love": [-0.28, 0.62, 0.18],
+                "transformation": [-0.22, 0.55, 0.12],
+                "chaos": [0.55, -0.65, -0.28],
+                "peace": [-0.32, 0.58, 0.22],
+                "understanding": [-0.25, 0.60, 0.15],
+                "experience": [-0.18, 0.48, 0.28],
+                "silence": [0.25, -0.45, 0.65],
+                "doubt": [0.38, -0.52, -0.18],
+                "clarity": [-0.20, 0.55, 0.08],
+                "wisdom": [-0.28, 0.58, 0.12],
+                "change": [-0.12, 0.42, 0.35],
+                "growth": [-0.22, 0.52, 0.25],
+                "refinement": [0.98, 0.12, 0.08],
+                "filter": [-0.99, 0.05, -0.02],
+                "knowledge": [0.35, 0.82, 0.15],
+                "crisis": [0.08, -0.99, -0.05],
+                "mirroring": [0.15, 0.25, 0.95],
+                "intensity": [-0.08, -0.12, -0.93]
+            }
+        };
+        
+        const roleColors = {
+            from: '#FF6B6B',
+            through: '#4ECDC4',
+            to: '#45B7D1',
+            observation: '#96CEB4',
+            result: '#FFEAA7'
+        };
+        
+        // Assign roles to key symbols (approximate based on S64 structure)
+        const symbolRoles = {
+            "hope": "from",
+            "fear": "through",
+            "love": "to",
+            "transformation": "result",
+            "chaos": "through",
+            "peace": "result",
+            "understanding": "result",
+            "experience": "observation",
+            "silence": "through",
+            "doubt": "through",
+            "clarity": "result",
+            "wisdom": "result",
+            "change": "through",
+            "growth": "result",
+            "decay": "through",
+            "elegance": "result",
+            "complexity": "through",
+            "memory": "observation",
+            "action": "through",
+            "relationship": "to",
+            "individuation": "result",
+            "direction": "through",
+            "presence": "observation",
+            "split": "through",
+            "entropy": "through",
+            "revelation": "result",
+            "refinement": "observation",
+            "filter": "through",
+            "knowledge": "observation",
+            "crisis": "through",
+            "mirroring": "observation",
+            "intensity": "through"
+        };
+        
+        function createSphereTrace(backend) {
+            const symbols = keySymbols[backend];
+            const x = [], y = [], z = [], text = [], colors = [];
+            
+            for (const [sym, pos] of Object.entries(symbols)) {
+                x.push(pos[0]);
+                y.push(pos[1]);
+                z.push(pos[2]);
+                text.push(sym);
+                colors.push(roleColors[symbolRoles[sym]] || '#888');
+            }
+            
+            return {
+                type: 'scatter3d',
+                mode: 'markers+text',
+                x: x,
+                y: y,
+                z: z,
+                text: text,
+                textposition: 'top center',
+                textfont: { size: 9, color: '#fff' },
+                marker: {
+                    size: 10,
+                    color: colors,
+                    opacity: 0.9,
+                    line: { width: 1, color: '#fff' }
+                },
+                hovertemplate: '<b>%{text}</b><extra></extra>'
+            };
+        }
+        
+        function createWireframeSphere() {
+            const u = [];
+            const v = [];
+            for (let i = 0; i <= 20; i++) {
+                u.push(i * Math.PI / 10);
+            }
+            for (let i = 0; i <= 10; i++) {
+                v.push(i * Math.PI / 10);
+            }
+            
+            const x = [], y = [], z = [];
+            for (let i = 0; i < u.length; i++) {
+                for (let j = 0; j < v.length; j++) {
+                    x.push(Math.cos(u[i]) * Math.sin(v[j]));
+                    y.push(Math.sin(u[i]) * Math.sin(v[j]));
+                    z.push(Math.cos(v[j]));
+                }
+            }
+            
+            return {
+                type: 'mesh3d',
+                x: x,
+                y: y,
+                z: z,
+                opacity: 0.1,
+                color: '#666',
+                alphahull: 0
+            };
+        }
+        
+        function createRolePathTrace(backend) {
+            const centroids = symbolData[backend].roleCentroids;
+            const path = ['from', 'through', 'to', 'observation', 'result'];
+            
+            // Create traces for each role centroid
+            const traces = [];
+            
+            // Centroid points
+            for (const role of path) {
+                const c = centroids[role];
+                traces.push({
+                    type: 'scatter3d',
+                    mode: 'markers+text',
+                    x: [c[0]],
+                    y: [c[1]],
+                    z: [c[2]],
+                    text: [role.toUpperCase()],
+                    textposition: 'top center',
+                    textfont: { size: 12, color: roleColors[role], family: 'Arial Black' },
+                    marker: {
+                        size: 20,
+                        color: roleColors[role],
+                        opacity: 1,
+                        symbol: 'diamond',
+                        line: { width: 2, color: '#fff' }
+                    },
+                    name: role,
+                    showlegend: false
+                });
+            }
+            
+            // Path lines: FROM → THROUGH → TO → RESULT
+            const pathOrder = ['from', 'through', 'to', 'result'];
+            for (let i = 0; i < pathOrder.length - 1; i++) {
+                const c1 = centroids[pathOrder[i]];
+                const c2 = centroids[pathOrder[i + 1]];
+                traces.push({
+                    type: 'scatter3d',
+                    mode: 'lines',
+                    x: [c1[0], c2[0]],
+                    y: [c1[1], c2[1]],
+                    z: [c1[2], c2[2]],
+                    line: {
+                        color: '#fff',
+                        width: 4
+                    },
+                    showlegend: false
+                });
+            }
+            
+            // Also connect TO → OBSERVATION → RESULT
+            const toObs = [centroids.to, centroids.observation];
+            traces.push({
+                type: 'scatter3d',
+                mode: 'lines',
+                x: [toObs[0][0], toObs[1][0]],
+                y: [toObs[0][1], toObs[1][1]],
+                z: [toObs[0][2], toObs[1][2]],
+                line: { color: '#aaa', width: 2, dash: 'dot' },
+                showlegend: false
+            });
+            
+            const obsResult = [centroids.observation, centroids.result];
+            traces.push({
+                type: 'scatter3d',
+                mode: 'lines',
+                x: [obsResult[0][0], obsResult[1][0]],
+                y: [obsResult[0][1], obsResult[1][1]],
+                z: [obsResult[0][2], obsResult[1][2]],
+                line: { color: '#aaa', width: 2, dash: 'dot' },
+                showlegend: false
+            });
+            
+            return traces;
+        }
+        
+        const layout3d = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            scene: {
+                xaxis: { 
+                    showgrid: true, 
+                    gridcolor: 'rgba(255,255,255,0.1)',
+                    zeroline: false,
+                    showticklabels: false,
+                    title: 'PC1'
+                },
+                yaxis: { 
+                    showgrid: true, 
+                    gridcolor: 'rgba(255,255,255,0.1)',
+                    zeroline: false,
+                    showticklabels: false,
+                    title: 'PC2'
+                },
+                zaxis: { 
+                    showgrid: true, 
+                    gridcolor: 'rgba(255,255,255,0.1)',
+                    zeroline: false,
+                    showticklabels: false,
+                    title: 'PC3'
+                },
+                bgcolor: 'rgba(0,0,0,0)',
+                aspectmode: 'cube'
+            },
+            margin: { l: 0, r: 0, t: 0, b: 0 },
+            showlegend: false
+        };
+        
+        // Create sphere plots
+        ['s128', 'nomic', 'openai'].forEach(backend => {
+            const traces = [createSphereTrace(backend)];
+            Plotly.newPlot(`sphere-${backend}`, traces, layout3d, { responsive: true });
+        });
+        
+        // Create role path plots
+        ['s128', 'nomic', 'openai'].forEach(backend => {
+            const traces = createRolePathTrace(backend);
+            const roleLayout = {
+                ...layout3d,
+                title: {
+                    text: backend.toUpperCase(),
+                    font: { color: '#4facfe', size: 16 }
+                }
+            };
+            Plotly.newPlot(`role-${backend}`, traces, roleLayout, { responsive: true });
+        });
+    </script>
+</body>
+</html>
+

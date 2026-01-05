@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alignment Hypersphere Visualization</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0f; 
+            color: #e0e0ff;
+            overflow: hidden;
+        }
+        #container { 
+            width: 100vw; 
+            height: 100vh; 
+            position: relative;
+        }
+        #canvas { 
+            width: 100%; 
+            height: 100%; 
+        }
+        
+        /* Controls Panel */
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(15, 15, 25, 0.95);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            width: 320px;
+            backdrop-filter: blur(10px);
+        }
+        #controls h2 {
+            color: #a78bfa;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .control-group {
+            margin-bottom: 15px;
+        }
+        .control-group label {
+            display: block;
+            color: #9ca3af;
+            font-size: 11px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        select, button {
+            width: 100%;
+            padding: 8px 12px;
+            background: rgba(30, 30, 50, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 6px;
+            color: #e0e0ff;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        select:hover, button:hover {
+            border-color: rgba(139, 92, 246, 0.6);
+        }
+        button.active {
+            background: rgba(139, 92, 246, 0.4);
+        }
+        
+        /* Timeline */
+        #timeline {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        #turn-slider {
+            width: 100%;
+            margin: 10px 0;
+            accent-color: #a78bfa;
+        }
+        #turn-display {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #a78bfa;
+        }
+        .playback-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .playback-controls button {
+            flex: 1;
+        }
+        
+        /* Metrics Panel */
+        #metrics {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(15, 15, 25, 0.95);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            width: 280px;
+            backdrop-filter: blur(10px);
+        }
+        #metrics h2 {
+            color: #a78bfa;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+        }
+        .metric-name {
+            color: #9ca3af;
+            font-size: 12px;
+        }
+        .metric-value {
+            font-family: 'Consolas', monospace;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .metric-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(139, 92, 246, 0.2);
+            border-radius: 2px;
+            margin-top: 4px;
+        }
+        .metric-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        /* 3D Alignment Indicator */
+        .alignment-3d {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        .alignment-3d h3 {
+            color: #a78bfa;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        /* Active Paths */
+        #active-paths {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(15, 15, 25, 0.9);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 15px 20px;
+            backdrop-filter: blur(10px);
+        }
+        #active-paths h3 {
+            color: #a78bfa;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        #path-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .path-badge {
+            padding: 4px 10px;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: 20px;
+            font-size: 11px;
+            font-family: 'Consolas', monospace;
+        }
+        .path-badge.active {
+            background: rgba(34, 197, 94, 0.3);
+            border-color: rgba(34, 197, 94, 0.6);
+            color: #86efac;
+        }
+        
+        /* Legend */
+        .legend {
+            position: absolute;
+            bottom: 100px;
+            right: 20px;
+            background: rgba(15, 15, 25, 0.9);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 11px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas"></canvas>
+        
+        <!-- Controls -->
+        <div id="controls">
+            <h2>Alignment Hypersphere</h2>
+            
+            <div class="control-group">
+                <label>Baseline</label>
+                <select id="baseline-select">
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Backend</label>
+                <select id="backend-select">
+                    <option value="nomic">Nomic</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="s128">S128</option>
+                </select>
+            </div>
+            
+            <div id="timeline">
+                <label>Conversation Turn</label>
+                <div id="turn-display">4</div>
+                <input type="range" id="turn-slider" min="0" max="28" value="0">
+                <div class="playback-controls">
+                    <button id="play-btn">▶ Play</button>
+                    <button id="reset-btn">↺ Reset</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Metrics -->
+        <div id="metrics">
+            <h2>Alignment Metrics</h2>
+            
+            <div class="metric-row">
+                <span class="metric-name">SGI (Grounding)</span>
+                <span class="metric-value" id="sgi-value">0.000</span>
+            </div>
+            <div class="metric-bar"><div class="metric-bar-fill" id="sgi-bar" style="width: 0%; background: #3b82f6;"></div></div>
+            
+            <div class="metric-row">
+                <span class="metric-name">Synchrony</span>
+                <span class="metric-value" id="sync-value">0.000</span>
+            </div>
+            <div class="metric-bar"><div class="metric-bar-fill" id="sync-bar" style="width: 0%; background: #a855f7;"></div></div>
+            
+            <div class="metric-row">
+                <span class="metric-name">Entropy</span>
+                <span class="metric-value" id="entropy-value">0.000</span>
+            </div>
+            <div class="metric-bar"><div class="metric-bar-fill" id="entropy-bar" style="width: 0%; background: #f59e0b;"></div></div>
+            
+            <div class="metric-row">
+                <span class="metric-name">Velocity</span>
+                <span class="metric-value" id="velocity-value">0.000</span>
+            </div>
+            <div class="metric-bar"><div class="metric-bar-fill" id="velocity-bar" style="width: 0%; background: #10b981;"></div></div>
+            
+            <div class="alignment-3d">
+                <h3>3D Alignment</h3>
+                <div class="metric-row">
+                    <span class="metric-name">Anchor</span>
+                    <span class="metric-value" id="anchor-value">0.000</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-name">Resonance</span>
+                    <span class="metric-value" id="resonance-value">0.000</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-name">Health</span>
+                    <span class="metric-value" id="health-value">0.000</span>
+                </div>
+                <div class="metric-row" style="border-bottom: none;">
+                    <span class="metric-name" style="color: #a78bfa; font-weight: bold;">ALIGNMENT</span>
+                    <span class="metric-value" id="alignment-value" style="color: #a78bfa; font-size: 20px;">0.000</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Active Paths -->
+        <div id="active-paths">
+            <h3>Active S64 Paths (Turn <span id="turn-label">4</span>)</h3>
+            <div id="path-list">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+        
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #22c55e;"></div>
+                <span>Active Path</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #64748b;"></div>
+                <span>Inactive Path</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #a855f7; box-shadow: 0 0 10px #a855f7;"></div>
+                <span>High Activation</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+    }
+    </script>
+    
+    <script type="module">
+        import * as THREE from 'three';
+        
+        // ============================================================
+        // STATE
+        // ============================================================
+        let currentData = null;
+        let currentTurn = 0;
+        let isPlaying = false;
+        let playInterval = null;
+        
+        // Three.js objects
+        let scene, camera, renderer;
+        let nodeObjects = new Map();
+        let nodePositions = new Map();
+        const SPHERE_RADIUS = 50;
+        
+        // ============================================================
+        // DATA LOADING
+        // ============================================================
+        async function loadIndex() {
+            try {
+                const response = await fetch('data/index.json');
+                const index = await response.json();
+                
+                // Populate baseline select
+                const baselineSelect = document.getElementById('baseline-select');
+                baselineSelect.innerHTML = '';
+                
+                const uniqueBaselines = [...new Set(index.files.map(f => f.baseline_type))];
+                uniqueBaselines.forEach(baseline => {
+                    const option = document.createElement('option');
+                    option.value = baseline;
+                    option.textContent = baseline.replace(/_/g, ' ');
+                    baselineSelect.appendChild(option);
+                });
+                
+                // Load first baseline
+                if (uniqueBaselines.length > 0) {
+                    loadData(uniqueBaselines[0], 'nomic');
+                }
+                
+                return index;
+            } catch (e) {
+                console.error('Failed to load index:', e);
+                document.getElementById('baseline-select').innerHTML = '<option>Error loading data</option>';
+            }
+        }
+        
+        async function loadData(baseline, backend) {
+            try {
+                const filename = `${baseline}_${backend}.json`;
+                const response = await fetch(`data/${filename}`);
+                currentData = await response.json();
+                
+                // Update slider
+                const slider = document.getElementById('turn-slider');
+                slider.max = currentData.turns.length - 1;
+                slider.value = 0;
+                currentTurn = 0;
+                
+                updateVisualization();
+                console.log(`Loaded: ${filename}`, currentData);
+            } catch (e) {
+                console.error('Failed to load data:', e);
+            }
+        }
+        
+        // ============================================================
+        // THREE.JS SETUP
+        // ============================================================
+        function initThreeJS() {
+            const canvas = document.getElementById('canvas');
+            
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a0a0f);
+            scene.fog = new THREE.FogExp2(0x0a0a0f, 0.003);
+            
+            // Camera
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 30, 120);
+            camera.lookAt(0, 0, 0);
+            
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+            scene.add(ambientLight);
+            
+            const pulseLight = new THREE.PointLight(0xbbe7ff, 1.2, 200);
+            pulseLight.position.set(0, 0, 0);
+            scene.add(pulseLight);
+            
+            // Center glow
+            const glowGeometry = new THREE.SphereGeometry(5, 32, 32);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: 0x6ee7ff,
+                transparent: true,
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+            const glowCore = new THREE.Mesh(glowGeometry, glowMaterial);
+            scene.add(glowCore);
+            
+            // Hypersphere boundary
+            const boundaryGeometry = new THREE.SphereGeometry(SPHERE_RADIUS, 48, 48);
+            const boundaryMaterial = new THREE.MeshBasicMaterial({
+                color: 0x3b82f6,
+                transparent: true,
+                opacity: 0.05,
+                wireframe: true
+            });
+            const boundary = new THREE.Mesh(boundaryGeometry, boundaryMaterial);
+            scene.add(boundary);
+            
+            // Create 64 path nodes
+            for (let i = 1; i <= 64; i++) {
+                const position = calculateNodePosition(i);
+                nodePositions.set(i, position);
+                
+                const group = createNodeMesh(i, position);
+                nodeObjects.set(i, group);
+                scene.add(group);
+            }
+            
+            // Mouse controls
+            let isDragging = false;
+            let previousMouse = { x: 0, y: 0 };
+            let cameraAngle = { theta: 0, phi: Math.PI / 4 };
+            let cameraDistance = 120;
+            
+            canvas.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                previousMouse = { x: e.clientX, y: e.clientY };
+            });
+            
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - previousMouse.x;
+                const deltaY = e.clientY - previousMouse.y;
+                
+                cameraAngle.theta += deltaX * 0.005;
+                cameraAngle.phi = Math.max(0.1, Math.min(Math.PI - 0.1, cameraAngle.phi + deltaY * 0.005));
+                
+                previousMouse = { x: e.clientX, y: e.clientY };
+            });
+            
+            canvas.addEventListener('mouseup', () => isDragging = false);
+            canvas.addEventListener('mouseleave', () => isDragging = false);
+            
+            canvas.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                cameraDistance = Math.max(50, Math.min(200, cameraDistance + e.deltaY * 0.1));
+            });
+            
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // Update camera
+                camera.position.x = cameraDistance * Math.sin(cameraAngle.phi) * Math.cos(cameraAngle.theta);
+                camera.position.y = cameraDistance * Math.cos(cameraAngle.phi);
+                camera.position.z = cameraDistance * Math.sin(cameraAngle.phi) * Math.sin(cameraAngle.theta);
+                camera.lookAt(0, 0, 0);
+                
+                // Pulse animation
+                const time = Date.now() * 0.001;
+                nodeObjects.forEach((group, pathNum) => {
+                    const pulse = Math.sin(time * 2 + pathNum * 0.1) * 0.1 + 0.9;
+                    if (group.children[1]) {
+                        group.children[1].scale.setScalar(pulse);
+                    }
+                });
+                
+                renderer.render(scene, camera);
+            }
+            animate();
+            
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+        
+        function calculateNodePosition(pathNum) {
+            const index = pathNum - 1;
+            const totalNodes = 64;
+            
+            const phi = Math.acos(-1 + (2 * index) / totalNodes);
+            const theta = Math.sqrt(totalNodes * Math.PI) * phi;
+            
+            const radius = SPHERE_RADIUS * 0.9;
+            
+            const x = radius * Math.sin(phi) * Math.cos(theta);
+            const y = radius * Math.sin(phi) * Math.sin(theta);
+            const z = radius * Math.cos(phi);
+            
+            return new THREE.Vector3(x, y, z);
+        }
+        
+        function createNodeMesh(pathNum, position) {
+            const group = new THREE.Group();
+            group.position.copy(position);
+            
+            // Core
+            const coreGeometry = new THREE.SphereGeometry(0.8, 16, 16);
+            const coreMaterial = new THREE.MeshBasicMaterial({
+                color: 0x888888,
+                transparent: true,
+                opacity: 0.4
+            });
+            const core = new THREE.Mesh(coreGeometry, coreMaterial);
+            group.add(core);
+            
+            // Glow
+            const glowGeometry = new THREE.SphereGeometry(2, 32, 32);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: 0x64748b,
+                transparent: true,
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            group.add(glow);
+            
+            // Label
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 64;
+            canvas.height = 64;
+            ctx.fillStyle = 'rgba(0,0,0,0.6)';
+            ctx.beginPath();
+            ctx.arc(32, 32, 28, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#888888';
+            ctx.font = 'Bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(pathNum.toString(), 32, 32);
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            sprite.scale.set(4, 4, 1);
+            sprite.position.set(0, 3, 0);
+            group.add(sprite);
+            
+            group.userData = { pathNum };
+            
+            return group;
+        }
+        
+        // ============================================================
+        // VISUALIZATION UPDATE
+        // ============================================================
+        function updateVisualization() {
+            if (!currentData || !currentData.turns[currentTurn]) return;
+            
+            const turn = currentData.turns[currentTurn];
+            
+            // Update metrics display
+            document.getElementById('turn-display').textContent = turn.turn;
+            document.getElementById('turn-label').textContent = turn.turn;
+            
+            const metrics = turn.metrics;
+            document.getElementById('sgi-value').textContent = metrics.sgi.toFixed(3);
+            document.getElementById('sgi-bar').style.width = `${metrics.sgi * 100}%`;
+            
+            document.getElementById('sync-value').textContent = metrics.synchrony.toFixed(3);
+            document.getElementById('sync-bar').style.width = `${metrics.synchrony * 100}%`;
+            
+            document.getElementById('entropy-value').textContent = metrics.entropy.toFixed(3);
+            document.getElementById('entropy-bar').style.width = `${metrics.entropy * 100}%`;
+            
+            document.getElementById('velocity-value').textContent = metrics.velocity.toFixed(3);
+            document.getElementById('velocity-bar').style.width = `${Math.min(metrics.velocity, 1) * 100}%`;
+            
+            // 3D alignment
+            const align3d = turn.alignment_3d;
+            document.getElementById('anchor-value').textContent = align3d.anchor.toFixed(4);
+            document.getElementById('resonance-value').textContent = align3d.resonance.toFixed(4);
+            document.getElementById('health-value').textContent = align3d.health.toFixed(4);
+            document.getElementById('alignment-value').textContent = align3d.alignment.toFixed(4);
+            
+            // Update node appearances
+            const activePaths = turn.paths;
+            const pathList = document.getElementById('path-list');
+            pathList.innerHTML = '';
+            
+            nodeObjects.forEach((group, pathNum) => {
+                const activation = activePaths[pathNum] || 0;
+                const isActive = activation > 0;
+                
+                // Update core
+                const core = group.children[0];
+                if (core.material) {
+                    core.material.color.setHex(isActive ? 0xffffff : 0x888888);
+                    core.material.opacity = isActive ? 0.9 : 0.4;
+                }
+                
+                // Update glow
+                const glow = group.children[1];
+                if (glow.material) {
+                    if (isActive) {
+                        // Color based on activation strength
+                        const hue = 0.35 - activation * 0.2; // Green to yellow
+                        glow.material.color.setHSL(hue, 0.8, 0.5);
+                        glow.material.opacity = 0.3 + activation * 0.5;
+                        glow.scale.setScalar(1 + activation);
+                    } else {
+                        glow.material.color.setHex(0x64748b);
+                        glow.material.opacity = 0.2;
+                        glow.scale.setScalar(1);
+                    }
+                }
+                
+                // Update label color
+                const sprite = group.children[2];
+                if (sprite && sprite.material.map) {
+                    // Would need to regenerate texture for color change
+                }
+                
+                // Scale based on activation
+                group.scale.setScalar(isActive ? 1 + activation * 0.5 : 0.8);
+                
+                // Add to active paths list
+                if (isActive) {
+                    const badge = document.createElement('span');
+                    badge.className = 'path-badge active';
+                    badge.textContent = `M${pathNum} (${(activation * 100).toFixed(0)}%)`;
+                    pathList.appendChild(badge);
+                }
+            });
+            
+            if (pathList.children.length === 0) {
+                pathList.innerHTML = '<span style="color: #64748b;">No active paths this turn</span>';
+            }
+        }
+        
+        // ============================================================
+        // CONTROLS
+        // ============================================================
+        function setupControls() {
+            // Baseline select
+            document.getElementById('baseline-select').addEventListener('change', (e) => {
+                const backend = document.getElementById('backend-select').value;
+                loadData(e.target.value, backend);
+            });
+            
+            // Backend select
+            document.getElementById('backend-select').addEventListener('change', (e) => {
+                const baseline = document.getElementById('baseline-select').value;
+                loadData(baseline, e.target.value);
+            });
+            
+            // Turn slider
+            document.getElementById('turn-slider').addEventListener('input', (e) => {
+                currentTurn = parseInt(e.target.value);
+                updateVisualization();
+            });
+            
+            // Play button
+            document.getElementById('play-btn').addEventListener('click', () => {
+                if (isPlaying) {
+                    isPlaying = false;
+                    clearInterval(playInterval);
+                    document.getElementById('play-btn').textContent = '▶ Play';
+                } else {
+                    isPlaying = true;
+                    document.getElementById('play-btn').textContent = '⏸ Pause';
+                    
+                    playInterval = setInterval(() => {
+                        if (!currentData) return;
+                        
+                        currentTurn++;
+                        if (currentTurn >= currentData.turns.length) {
+                            currentTurn = 0;
+                        }
+                        
+                        document.getElementById('turn-slider').value = currentTurn;
+                        updateVisualization();
+                    }, 500); // 500ms per turn
+                }
+            });
+            
+            // Reset button
+            document.getElementById('reset-btn').addEventListener('click', () => {
+                currentTurn = 0;
+                document.getElementById('turn-slider').value = 0;
+                updateVisualization();
+                
+                if (isPlaying) {
+                    isPlaying = false;
+                    clearInterval(playInterval);
+                    document.getElementById('play-btn').textContent = '▶ Play';
+                }
+            });
+        }
+        
+        // ============================================================
+        // INIT
+        // ============================================================
+        initThreeJS();
+        setupControls();
+        loadIndex();
+    </script>
+</body>
+</html>
+

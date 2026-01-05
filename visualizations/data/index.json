@@ -1,0 +1,167 @@
+{
+  "baselines": [
+    "B9_clean",
+    "LC1_clean",
+    "LC1_severe",
+    "B9_confident_wrong",
+    "B9_severe",
+    "LC1_mild"
+  ],
+  "backends": [
+    "openai",
+    "s128",
+    "nomic"
+  ],
+  "manifolds": {
+    "human_ai": [
+      "B9_confident_wrong",
+      "B9_confident_wrong",
+      "B9_confident_wrong",
+      "B9_severe",
+      "B9_severe",
+      "B9_severe",
+      "B9_clean",
+      "B9_clean",
+      "B9_clean"
+    ],
+    "ai_ai": [
+      "LC1_mild",
+      "LC1_mild",
+      "LC1_mild",
+      "LC1_severe",
+      "LC1_severe",
+      "LC1_severe",
+      "LC1_clean",
+      "LC1_clean",
+      "LC1_clean"
+    ]
+  },
+  "files": [
+    {
+      "baseline_type": "B9_confident_wrong",
+      "backend": "nomic",
+      "manifold": "human_ai",
+      "filename": "B9_confident_wrong_nomic.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_confident_wrong",
+      "backend": "openai",
+      "manifold": "human_ai",
+      "filename": "B9_confident_wrong_openai.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_confident_wrong",
+      "backend": "s128",
+      "manifold": "human_ai",
+      "filename": "B9_confident_wrong_s128.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_severe",
+      "backend": "nomic",
+      "manifold": "human_ai",
+      "filename": "B9_severe_nomic.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_severe",
+      "backend": "openai",
+      "manifold": "human_ai",
+      "filename": "B9_severe_openai.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_severe",
+      "backend": "s128",
+      "manifold": "human_ai",
+      "filename": "B9_severe_s128.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_clean",
+      "backend": "nomic",
+      "manifold": "human_ai",
+      "filename": "B9_clean_nomic.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_clean",
+      "backend": "openai",
+      "manifold": "human_ai",
+      "filename": "B9_clean_openai.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "B9_clean",
+      "backend": "s128",
+      "manifold": "human_ai",
+      "filename": "B9_clean_s128.json",
+      "turns": 29
+    },
+    {
+      "baseline_type": "LC1_mild",
+      "backend": "nomic",
+      "manifold": "ai_ai",
+      "filename": "LC1_mild_nomic.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_mild",
+      "backend": "openai",
+      "manifold": "ai_ai",
+      "filename": "LC1_mild_openai.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_mild",
+      "backend": "s128",
+      "manifold": "ai_ai",
+      "filename": "LC1_mild_s128.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_severe",
+      "backend": "nomic",
+      "manifold": "ai_ai",
+      "filename": "LC1_severe_nomic.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_severe",
+      "backend": "openai",
+      "manifold": "ai_ai",
+      "filename": "LC1_severe_openai.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_severe",
+      "backend": "s128",
+      "manifold": "ai_ai",
+      "filename": "LC1_severe_s128.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_clean",
+      "backend": "nomic",
+      "manifold": "ai_ai",
+      "filename": "LC1_clean_nomic.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_clean",
+      "backend": "openai",
+      "manifold": "ai_ai",
+      "filename": "LC1_clean_openai.json",
+      "turns": 15
+    },
+    {
+      "baseline_type": "LC1_clean",
+      "backend": "s128",
+      "manifold": "ai_ai",
+      "filename": "LC1_clean_s128.json",
+      "turns": 15
+    }
+  ]
+}

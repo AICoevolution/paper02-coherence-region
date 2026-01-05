@@ -1,0 +1,1010 @@
+{
+  "run_meta": {
+    "generated_at": "20260101_001930",
+    "sidecar": "http://localhost:8000",
+    "available_only": true,
+    "batch_size": 32,
+    "modes": [
+      "raw",
+      "centered"
+    ],
+    "random_baseline_samples": 25,
+    "role_permutation_samples": 2000,
+    "seed": 1337,
+    "backend_names": [
+      "s128",
+      "e5-finetuned-v6",
+      "openai-ada-002",
+      "openai-3-small",
+      "openai-3-large",
+      "voyage-large-2-instruct",
+      "cohere-v3",
+      "bge-m3",
+      "google",
+      "qwen",
+      "nomic",
+      "jina-v3",
+      "mistral-embed"
+    ],
+    "backends_info": [
+      {
+        "name": "s128",
+        "display_name": "S128 Detection Model",
+        "dimension": 768,
+        "backend_type": "local",
+        "available": true,
+        "db_column_suffix": ""
+      },
+      {
+        "name": "e5-finetuned-v6",
+        "display_name": "E5 Fine-tuned (S64 v6)",
+        "dimension": 768,
+        "backend_type": "local",
+        "available": true,
+        "db_column_suffix": ""
+      },
+      {
+        "name": "openai-ada-002",
+        "display_name": "OpenAI Ada-002",
+        "dimension": 1536,
+        "backend_type": "openai",
+        "available": true,
+        "db_column_suffix": "_openai"
+      },
+      {
+        "name": "openai-3-small",
+        "display_name": "OpenAI Embed 3 Small",
+        "dimension": 1536,
+        "backend_type": "openai",
+        "available": true,
+        "db_column_suffix": "_openai"
+      },
+      {
+        "name": "openai-3-large",
+        "display_name": "OpenAI Embed 3 Large",
+        "dimension": 3072,
+        "backend_type": "openai",
+        "available": true,
+        "db_column_suffix": "_openai"
+      },
+      {
+        "name": "voyage-large-2-instruct",
+        "display_name": "Voyage Large 2 Instruct",
+        "dimension": 1024,
+        "backend_type": "voyage",
+        "available": true,
+        "db_column_suffix": "_voyage"
+      },
+      {
+        "name": "cohere-v3",
+        "display_name": "Cohere Embed v3",
+        "dimension": 1024,
+        "backend_type": "cohere",
+        "available": true,
+        "db_column_suffix": "_cohere"
+      },
+      {
+        "name": "bge-m3",
+        "display_name": "BGE-M3 (Multilingual)",
+        "dimension": 1024,
+        "backend_type": "local",
+        "available": true,
+        "db_column_suffix": "_bge_m3"
+      },
+      {
+        "name": "google",
+        "display_name": "Google Gemini Embeddings (gemini-embedding-001)",
+        "dimension": 768,
+        "backend_type": "google",
+        "available": true,
+        "db_column_suffix": "_google"
+      },
+      {
+        "name": "qwen",
+        "display_name": "Qwen Embeddings (local) (Qwen/Qwen3-Embedding-0.6B)",
+        "dimension": 1024,
+        "backend_type": "local",
+        "available": true,
+        "db_column_suffix": "_qwen"
+      },
+      {
+        "name": "nomic",
+        "display_name": "Nomic Embeddings (local) (nomic-ai/nomic-embed-text-v1.5)",
+        "dimension": 768,
+        "backend_type": "local",
+        "available": true,
+        "db_column_suffix": "_nomic"
+      },
+      {
+        "name": "jina-v3",
+        "display_name": "Jina Embeddings v3",
+        "dimension": 1024,
+        "backend_type": "jina",
+        "available": true,
+        "db_column_suffix": "_jina"
+      },
+      {
+        "name": "mistral-embed",
+        "display_name": "Mistral Embed",
+        "dimension": 1024,
+        "backend_type": "mistral",
+        "available": true,
+        "db_column_suffix": "_mistral"
+      }
+    ],
+    "n_symbols": 180
+  },
+  "backends": {
+    "s128": {
+      "embedding_meta": {
+        "backend": "s128",
+        "model": null,
+        "dimension": 768
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 41.03426727317119,
+          "pairwise_angle_std_deg": 3.307260738781498,
+          "rbar": 0.8685746306401727,
+          "cluster_k6": {
+            "cluster_sizes": [
+              161,
+              8,
+              7,
+              2,
+              1,
+              1
+            ],
+            "gini": 0.7648148148148147,
+            "max_cluster_fraction": 0.8944444444444445,
+            "inv_simpson_effective_clusters": 1.2442396313364055
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.993
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.007
+          }
+        },
+        "centered": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 90.29938804377402,
+          "pairwise_angle_std_deg": 6.620925145827071,
+          "rbar": 0.008609495164133047,
+          "cluster_k6": {
+            "cluster_sizes": [
+              39,
+              37,
+              36,
+              28,
+              22,
+              18
+            ],
+            "gini": 0.14629629629629637,
+            "max_cluster_fraction": 0.21666666666666667,
+            "inv_simpson_effective_clusters": 5.6074766355140175
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.4565
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.5435
+          }
+        }
+      }
+    },
+    "e5-finetuned-v6": {
+      "embedding_meta": {
+        "backend": "e5-finetuned-v6",
+        "model": null,
+        "dimension": 768
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 33.10680892309248,
+          "pairwise_angle_std_deg": 2.056305000724218,
+          "rbar": 0.9154327687928865,
+          "cluster_k6": {
+            "cluster_sizes": [
+              167,
+              8,
+              2,
+              1,
+              1,
+              1
+            ],
+            "gini": 0.7888888888888889,
+            "max_cluster_fraction": 0.9277777777777778,
+            "inv_simpson_effective_clusters": 1.1587982832618027
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.999
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.001
+          }
+        },
+        "centered": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 90.3100152436048,
+          "pairwise_angle_std_deg": 5.2014790811355915,
+          "rbar": 0.006458016191333659,
+          "cluster_k6": {
+            "cluster_sizes": [
+              44,
+              40,
+              32,
+              32,
+              19,
+              13
+            ],
+            "gini": 0.20185185185185187,
+            "max_cluster_fraction": 0.24444444444444444,
+            "inv_simpson_effective_clusters": 5.299313052011777
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.8225
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.1775
+          }
+        }
+      }
+    },
+    "openai-ada-002": {
+      "embedding_meta": {
+        "backend": "openai-ada-002",
+        "model": null,
+        "dimension": 1536
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1536,
+          "pairwise_angle_mean_deg": 33.21660633390838,
+          "pairwise_angle_std_deg": 1.8418175189562507,
+          "rbar": 0.9149220203481079,
+          "cluster_k6": {
+            "cluster_sizes": [
+              169,
+              6,
+              2,
+              1,
+              1,
+              1
+            ],
+            "gini": 0.7925925925925926,
+            "max_cluster_fraction": 0.9388888888888889,
+            "inv_simpson_effective_clusters": 1.1327087120682422
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.9975
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0025
+          }
+        },
+        "centered": {
+          "dim": 1536,
+          "pairwise_angle_mean_deg": 90.3131539361148,
+          "pairwise_angle_std_deg": 4.546602352396646,
+          "rbar": 0.005337909737335093,
+          "cluster_k6": {
+            "cluster_sizes": [
+              55,
+              36,
+              27,
+              23,
+              20,
+              19
+            ],
+            "gini": 0.2148148148148148,
+            "max_cluster_fraction": 0.3055555555555556,
+            "inv_simpson_effective_clusters": 5.110410094637224
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.8185
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.1815
+          }
+        }
+      }
+    },
+    "openai-3-small": {
+      "embedding_meta": {
+        "backend": "openai-3-small",
+        "model": null,
+        "dimension": 1536
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1536,
+          "pairwise_angle_mean_deg": 67.01985316514025,
+          "pairwise_angle_std_deg": 3.8468593674712332,
+          "rbar": 0.626811641075265,
+          "cluster_k6": {
+            "cluster_sizes": [
+              153,
+              10,
+              8,
+              6,
+              2,
+              1
+            ],
+            "gini": 0.7277777777777779,
+            "max_cluster_fraction": 0.85,
+            "inv_simpson_effective_clusters": 1.3720674176336074
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.9995
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0005
+          }
+        },
+        "centered": {
+          "dim": 1536,
+          "pairwise_angle_mean_deg": 90.31291165627577,
+          "pairwise_angle_std_deg": 4.795028491798314,
+          "rbar": 0.0048336428178579185,
+          "cluster_k6": {
+            "cluster_sizes": [
+              53,
+              46,
+              30,
+              22,
+              19,
+              10
+            ],
+            "gini": 0.2814814814814815,
+            "max_cluster_fraction": 0.29444444444444445,
+            "inv_simpson_effective_clusters": 4.785819793205317
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.7655
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.2345
+          }
+        }
+      }
+    },
+    "openai-3-large": {
+      "embedding_meta": {
+        "backend": "openai-3-large",
+        "model": null,
+        "dimension": 3072
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 3072,
+          "pairwise_angle_mean_deg": 66.50147251455677,
+          "pairwise_angle_std_deg": 3.4553717651222584,
+          "rbar": 0.6334918653013617,
+          "cluster_k6": {
+            "cluster_sizes": [
+              90,
+              37,
+              34,
+              11,
+              6,
+              2
+            ],
+            "gini": 0.5148148148148148,
+            "max_cluster_fraction": 0.5,
+            "inv_simpson_effective_clusters": 3.003893936584462
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 1.0
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0
+          }
+        },
+        "centered": {
+          "dim": 3072,
+          "pairwise_angle_mean_deg": 90.31346771494508,
+          "pairwise_angle_std_deg": 4.480936272872528,
+          "rbar": 0.0033596664669043974,
+          "cluster_k6": {
+            "cluster_sizes": [
+              52,
+              43,
+              43,
+              20,
+              12,
+              10
+            ],
+            "gini": 0.3018518518518518,
+            "max_cluster_fraction": 0.28888888888888886,
+            "inv_simpson_effective_clusters": 4.598353675844451
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.9035
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0965
+          }
+        }
+      }
+    },
+    "voyage-large-2-instruct": {
+      "embedding_meta": {
+        "backend": "voyage-large-2-instruct",
+        "model": null,
+        "dimension": 1024
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 40.82734075296073,
+          "pairwise_angle_std_deg": 3.888029665104179,
+          "rbar": 0.869650219305868,
+          "cluster_k6": {
+            "cluster_sizes": [
+              175,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "gini": 0.8055555555555557,
+            "max_cluster_fraction": 0.9722222222222222,
+            "inv_simpson_effective_clusters": 1.0577864838393733
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 0.9995,
+            "observation-result": 0.9935
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0005,
+            "observation-result": 0.0065
+          }
+        },
+        "centered": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 90.29995699154134,
+          "pairwise_angle_std_deg": 5.116175075442104,
+          "rbar": 0.016417086025196218,
+          "cluster_k6": {
+            "cluster_sizes": [
+              53,
+              49,
+              38,
+              16,
+              14,
+              10
+            ],
+            "gini": 0.3166666666666667,
+            "max_cluster_fraction": 0.29444444444444445,
+            "inv_simpson_effective_clusters": 4.496253122398002
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 0.9995,
+            "observation-result": 0.8565
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0005,
+            "observation-result": 0.1435
+          }
+        }
+      }
+    },
+    "cohere-v3": {
+      "embedding_meta": {
+        "backend": "cohere-v3",
+        "model": null,
+        "dimension": 1024
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 57.00589403780956,
+          "pairwise_angle_std_deg": 3.993231711277675,
+          "rbar": 0.7387531836748583,
+          "cluster_k6": {
+            "cluster_sizes": [
+              135,
+              15,
+              9,
+              9,
+              9,
+              3
+            ],
+            "gini": 0.6277777777777778,
+            "max_cluster_fraction": 0.75,
+            "inv_simpson_effective_clusters": 1.732435033686237
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.987
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.013
+          }
+        },
+        "centered": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 90.31084785584673,
+          "pairwise_angle_std_deg": 5.485646962436594,
+          "rbar": 0.0069924936330399414,
+          "cluster_k6": {
+            "cluster_sizes": [
+              52,
+              38,
+              33,
+              31,
+              14,
+              12
+            ],
+            "gini": 0.2537037037037037,
+            "max_cluster_fraction": 0.28888888888888886,
+            "inv_simpson_effective_clusters": 4.955643927806669
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.2635
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.7365
+          }
+        }
+      }
+    },
+    "bge-m3": {
+      "embedding_meta": {
+        "backend": "bge-m3",
+        "model": null,
+        "dimension": 1024
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 42.830448639473545,
+          "pairwise_angle_std_deg": 3.055953419195695,
+          "rbar": 0.8566228224626128,
+          "cluster_k6": {
+            "cluster_sizes": [
+              171,
+              4,
+              2,
+              1,
+              1,
+              1
+            ],
+            "gini": 0.7962962962962963,
+            "max_cluster_fraction": 0.95,
+            "inv_simpson_effective_clusters": 1.1071623838162932
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 1.0
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0
+          }
+        },
+        "centered": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 90.30563472695214,
+          "pairwise_angle_std_deg": 5.594925708346648,
+          "rbar": 0.007626469731434475,
+          "cluster_k6": {
+            "cluster_sizes": [
+              54,
+              37,
+              29,
+              26,
+              20,
+              14
+            ],
+            "gini": 0.23518518518518525,
+            "max_cluster_fraction": 0.3,
+            "inv_simpson_effective_clusters": 5.064082525789309
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.75
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.25
+          }
+        }
+      }
+    },
+    "google": {
+      "embedding_meta": {
+        "backend": "google",
+        "model": null,
+        "dimension": 768
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 47.85804419066413,
+          "pairwise_angle_std_deg": 2.8442442834981234,
+          "rbar": 0.8197389332150441,
+          "cluster_k6": {
+            "cluster_sizes": [
+              169,
+              3,
+              3,
+              2,
+              2,
+              1
+            ],
+            "gini": 0.7814814814814816,
+            "max_cluster_fraction": 0.9388888888888889,
+            "inv_simpson_effective_clusters": 1.133342661256471
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.9985
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0015
+          }
+        },
+        "centered": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 90.31225442966814,
+          "pairwise_angle_std_deg": 3.996282101772168,
+          "rbar": 0.009476493414452966,
+          "cluster_k6": {
+            "cluster_sizes": [
+              56,
+              47,
+              32,
+              25,
+              13,
+              7
+            ],
+            "gini": 0.3277777777777778,
+            "max_cluster_fraction": 0.3111111111111111,
+            "inv_simpson_effective_clusters": 4.492512479201332
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.8035
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.1965
+          }
+        }
+      }
+    },
+    "qwen": {
+      "embedding_meta": {
+        "backend": "qwen",
+        "model": null,
+        "dimension": 1024
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 50.9095928236112,
+          "pairwise_angle_std_deg": 4.228227457955543,
+          "rbar": 0.7942941010577477,
+          "cluster_k6": {
+            "cluster_sizes": [
+              175,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "gini": 0.8055555555555557,
+            "max_cluster_fraction": 0.9722222222222222,
+            "inv_simpson_effective_clusters": 1.0577864838393733
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.9995
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0005
+          }
+        },
+        "centered": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 90.30551412853401,
+          "pairwise_angle_std_deg": 5.097200281064673,
+          "rbar": 0.011273834379858731,
+          "cluster_k6": {
+            "cluster_sizes": [
+              44,
+              38,
+              38,
+              28,
+              19,
+              13
+            ],
+            "gini": 0.20555555555555557,
+            "max_cluster_fraction": 0.24444444444444444,
+            "inv_simpson_effective_clusters": 5.278592375366568
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.7825
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.2175
+          }
+        }
+      }
+    },
+    "nomic": {
+      "embedding_meta": {
+        "backend": "nomic",
+        "model": null,
+        "dimension": 768
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 42.72700175861115,
+          "pairwise_angle_std_deg": 3.208156669833594,
+          "rbar": 0.8572728557181297,
+          "cluster_k6": {
+            "cluster_sizes": [
+              154,
+              14,
+              7,
+              3,
+              1,
+              1
+            ],
+            "gini": 0.7481481481481481,
+            "max_cluster_fraction": 0.8555555555555555,
+            "inv_simpson_effective_clusters": 1.351576839646254
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 1.0
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0
+          }
+        },
+        "centered": {
+          "dim": 768,
+          "pairwise_angle_mean_deg": 90.3073712619882,
+          "pairwise_angle_std_deg": 5.573330642984097,
+          "rbar": 0.010742514883397778,
+          "cluster_k6": {
+            "cluster_sizes": [
+              57,
+              40,
+              37,
+              18,
+              17,
+              11
+            ],
+            "gini": 0.29444444444444445,
+            "max_cluster_fraction": 0.31666666666666665,
+            "inv_simpson_effective_clusters": 4.660529344073647
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.8045
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.1955
+          }
+        }
+      }
+    },
+    "jina-v3": {
+      "embedding_meta": {
+        "backend": "jina-v3",
+        "model": null,
+        "dimension": 1024
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 48.7278649934692,
+          "pairwise_angle_std_deg": 5.066613920352527,
+          "rbar": 0.8117644793341733,
+          "cluster_k6": {
+            "cluster_sizes": [
+              173,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "gini": 0.7999999999999999,
+            "max_cluster_fraction": 0.9611111111111111,
+            "inv_simpson_effective_clusters": 1.0821643286573146
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 1.0
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.0
+          }
+        },
+        "centered": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 90.28302780437913,
+          "pairwise_angle_std_deg": 6.269645575454648,
+          "rbar": 0.0202952608716816,
+          "cluster_k6": {
+            "cluster_sizes": [
+              48,
+              40,
+              30,
+              30,
+              23,
+              9
+            ],
+            "gini": 0.22777777777777772,
+            "max_cluster_fraction": 0.26666666666666666,
+            "inv_simpson_effective_clusters": 5.131453911941717
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.952
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.048
+          }
+        }
+      }
+    },
+    "mistral-embed": {
+      "embedding_meta": {
+        "backend": "mistral-embed",
+        "model": null,
+        "dimension": 1024
+      },
+      "by_mode_summary": {
+        "raw": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 41.00639168881299,
+          "pairwise_angle_std_deg": 2.491577170031141,
+          "rbar": 0.8690731264485341,
+          "cluster_k6": {
+            "cluster_sizes": [
+              164,
+              9,
+              3,
+              2,
+              1,
+              1
+            ],
+            "gini": 0.7777777777777777,
+            "max_cluster_fraction": 0.9111111111111111,
+            "inv_simpson_effective_clusters": 1.2003556609365738
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.995
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.005
+          }
+        },
+        "centered": {
+          "dim": 1024,
+          "pairwise_angle_mean_deg": 90.31235482135055,
+          "pairwise_angle_std_deg": 4.332411612635042,
+          "rbar": 0.008646740343435294,
+          "cluster_k6": {
+            "cluster_sizes": [
+              60,
+              37,
+              31,
+              28,
+              14,
+              10
+            ],
+            "gini": 0.2981481481481481,
+            "max_cluster_fraction": 0.3333333333333333,
+            "inv_simpson_effective_clusters": 4.621968616262483
+          },
+          "role_perm_p_close": {
+            "from-to": 0.0,
+            "through-result": 1.0,
+            "observation-result": 0.906
+          },
+          "role_perm_p_far": {
+            "from-to": 1.0,
+            "through-result": 0.0,
+            "observation-result": 0.094
+          }
+        }
+      }
+    }
+  }
+}

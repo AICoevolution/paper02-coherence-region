@@ -1,0 +1,135 @@
+{
+  "generated_at": "20260101_001930",
+  "sidecar": "http://localhost:8000",
+  "available_only": true,
+  "batch_size": 32,
+  "modes": [
+    "raw",
+    "centered"
+  ],
+  "random_baseline_samples": 25,
+  "role_permutation_samples": 2000,
+  "seed": 1337,
+  "backend_names": [
+    "s128",
+    "e5-finetuned-v6",
+    "openai-ada-002",
+    "openai-3-small",
+    "openai-3-large",
+    "voyage-large-2-instruct",
+    "cohere-v3",
+    "bge-m3",
+    "google",
+    "qwen",
+    "nomic",
+    "jina-v3",
+    "mistral-embed"
+  ],
+  "backends_info": [
+    {
+      "name": "s128",
+      "display_name": "S128 Detection Model",
+      "dimension": 768,
+      "backend_type": "local",
+      "available": true,
+      "db_column_suffix": ""
+    },
+    {
+      "name": "e5-finetuned-v6",
+      "display_name": "E5 Fine-tuned (S64 v6)",
+      "dimension": 768,
+      "backend_type": "local",
+      "available": true,
+      "db_column_suffix": ""
+    },
+    {
+      "name": "openai-ada-002",
+      "display_name": "OpenAI Ada-002",
+      "dimension": 1536,
+      "backend_type": "openai",
+      "available": true,
+      "db_column_suffix": "_openai"
+    },
+    {
+      "name": "openai-3-small",
+      "display_name": "OpenAI Embed 3 Small",
+      "dimension": 1536,
+      "backend_type": "openai",
+      "available": true,
+      "db_column_suffix": "_openai"
+    },
+    {
+      "name": "openai-3-large",
+      "display_name": "OpenAI Embed 3 Large",
+      "dimension": 3072,
+      "backend_type": "openai",
+      "available": true,
+      "db_column_suffix": "_openai"
+    },
+    {
+      "name": "voyage-large-2-instruct",
+      "display_name": "Voyage Large 2 Instruct",
+      "dimension": 1024,
+      "backend_type": "voyage",
+      "available": true,
+      "db_column_suffix": "_voyage"
+    },
+    {
+      "name": "cohere-v3",
+      "display_name": "Cohere Embed v3",
+      "dimension": 1024,
+      "backend_type": "cohere",
+      "available": true,
+      "db_column_suffix": "_cohere"
+    },
+    {
+      "name": "bge-m3",
+      "display_name": "BGE-M3 (Multilingual)",
+      "dimension": 1024,
+      "backend_type": "local",
+      "available": true,
+      "db_column_suffix": "_bge_m3"
+    },
+    {
+      "name": "google",
+      "display_name": "Google Gemini Embeddings (gemini-embedding-001)",
+      "dimension": 768,
+      "backend_type": "google",
+      "available": true,
+      "db_column_suffix": "_google"
+    },
+    {
+      "name": "qwen",
+      "display_name": "Qwen Embeddings (local) (Qwen/Qwen3-Embedding-0.6B)",
+      "dimension": 1024,
+      "backend_type": "local",
+      "available": true,
+      "db_column_suffix": "_qwen"
+    },
+    {
+      "name": "nomic",
+      "display_name": "Nomic Embeddings (local) (nomic-ai/nomic-embed-text-v1.5)",
+      "dimension": 768,
+      "backend_type": "local",
+      "available": true,
+      "db_column_suffix": "_nomic"
+    },
+    {
+      "name": "jina-v3",
+      "display_name": "Jina Embeddings v3",
+      "dimension": 1024,
+      "backend_type": "jina",
+      "available": true,
+      "db_column_suffix": "_jina"
+    },
+    {
+      "name": "mistral-embed",
+      "display_name": "Mistral Embed",
+      "dimension": 1024,
+      "backend_type": "mistral",
+      "available": true,
+      "db_column_suffix": "_mistral"
+    }
+  ],
+  "n_symbols": 180
+}

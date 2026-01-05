@@ -1,0 +1,5 @@
+{
+  "backend": "openai-3-small",
+  "model": null,
+  "dimension": 1536
+}

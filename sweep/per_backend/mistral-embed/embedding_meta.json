@@ -1,0 +1,5 @@
+{
+  "backend": "mistral-embed",
+  "model": null,
+  "dimension": 1024
+}

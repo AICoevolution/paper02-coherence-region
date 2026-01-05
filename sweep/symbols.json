@@ -1,0 +1,2221 @@
+[
+  {
+    "symbol": "absence",
+    "token": "[absence]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "3": "observation"
+    }
+  },
+  {
+    "symbol": "acceptance",
+    "token": "[acceptance]",
+    "embedding": [],
+    "roles": {
+      "result": 1,
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "24": "through",
+      "43": "result",
+      "63": "observation"
+    }
+  },
+  {
+    "symbol": "achievement",
+    "token": "[achievement]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "45": "result"
+    }
+  },
+  {
+    "symbol": "action",
+    "token": "[action]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "34": "through"
+    }
+  },
+  {
+    "symbol": "adaptation",
+    "token": "[adaptation]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 2
+    },
+    "paths": {
+      "27": "to",
+      "28": "from",
+      "41": "to",
+      "42": "from"
+    }
+  },
+  {
+    "symbol": "alignment",
+    "token": "[alignment]",
+    "embedding": [],
+    "roles": {
+      "observation": 2
+    },
+    "paths": {
+      "12": "observation",
+      "21": "observation"
+    }
+  },
+  {
+    "symbol": "aspiration",
+    "token": "[aspiration]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "47": "observation"
+    }
+  },
+  {
+    "symbol": "authenticity",
+    "token": "[authenticity]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "55": "result"
+    }
+  },
+  {
+    "symbol": "awakening",
+    "token": "[awakening]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "64": "result"
+    }
+  },
+  {
+    "symbol": "awareness",
+    "token": "[awareness]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 2,
+      "result": 1
+    },
+    "paths": {
+      "10": "result",
+      "35": "to",
+      "36": "from",
+      "57": "to",
+      "58": "from"
+    }
+  },
+  {
+    "symbol": "balance",
+    "token": "[balance]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "40": "to",
+      "41": "from"
+    }
+  },
+  {
+    "symbol": "being",
+    "token": "[being]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "55": "observation"
+    }
+  },
+  {
+    "symbol": "breadth",
+    "token": "[breadth]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "57": "observation"
+    }
+  },
+  {
+    "symbol": "breakthrough",
+    "token": "[breakthrough]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "15": "result"
+    }
+  },
+  {
+    "symbol": "challenge",
+    "token": "[challenge]",
+    "embedding": [],
+    "roles": {
+      "through": 4
+    },
+    "paths": {
+      "22": "through",
+      "25": "through",
+      "51": "through",
+      "61": "through"
+    }
+  },
+  {
+    "symbol": "change",
+    "token": "[change]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "44": "to",
+      "45": "from"
+    }
+  },
+  {
+    "symbol": "channel",
+    "token": "[channel]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "17": "to",
+      "18": "from"
+    }
+  },
+  {
+    "symbol": "chaos",
+    "token": "[chaos]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "30": "through"
+    }
+  },
+  {
+    "symbol": "choice",
+    "token": "[choice]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "22": "result"
+    }
+  },
+  {
+    "symbol": "clarity",
+    "token": "[clarity]",
+    "embedding": [],
+    "roles": {
+      "result": 2,
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "5": "through",
+      "18": "result",
+      "32": "result",
+      "50": "observation"
+    }
+  },
+  {
+    "symbol": "coherence",
+    "token": "[coherence]",
+    "embedding": [],
+    "roles": {
+      "result": 2,
+      "observation": 1
+    },
+    "paths": {
+      "11": "observation",
+      "16": "result",
+      "53": "result"
+    }
+  },
+  {
+    "symbol": "completion",
+    "token": "[completion]",
+    "embedding": [],
+    "roles": {
+      "result": 1,
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "37": "result",
+      "46": "through",
+      "59": "observation"
+    }
+  },
+  {
+    "symbol": "complexity",
+    "token": "[complexity]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "31": "to",
+      "32": "from"
+    }
+  },
+  {
+    "symbol": "concentration",
+    "token": "[concentration]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "56": "observation"
+    }
+  },
+  {
+    "symbol": "conclusion",
+    "token": "[conclusion]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "63": "through"
+    }
+  },
+  {
+    "symbol": "conflict",
+    "token": "[conflict]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "1": "through"
+    }
+  },
+  {
+    "symbol": "connection",
+    "token": "[connection]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "39": "through"
+    }
+  },
+  {
+    "symbol": "consciousness",
+    "token": "[consciousness]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "35": "result"
+    }
+  },
+  {
+    "symbol": "constraint",
+    "token": "[constraint]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "29": "through"
+    }
+  },
+  {
+    "symbol": "contentment",
+    "token": "[contentment]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "46": "result"
+    }
+  },
+  {
+    "symbol": "contraction",
+    "token": "[contraction]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "58": "through"
+    }
+  },
+  {
+    "symbol": "contradiction",
+    "token": "[contradiction]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "15": "through"
+    }
+  },
+  {
+    "symbol": "contrast",
+    "token": "[contrast]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "7": "observation"
+    }
+  },
+  {
+    "symbol": "core",
+    "token": "[core]",
+    "embedding": [],
+    "roles": {
+      "from": 1,
+      "result": 1
+    },
+    "paths": {
+      "9": "result",
+      "10": "from"
+    }
+  },
+  {
+    "symbol": "crack",
+    "token": "[crack]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "4": "result"
+    }
+  },
+  {
+    "symbol": "creativity",
+    "token": "[creativity]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "29": "to",
+      "30": "from"
+    }
+  },
+  {
+    "symbol": "crisis",
+    "token": "[crisis]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "9": "through"
+    }
+  },
+  {
+    "symbol": "curiosity",
+    "token": "[curiosity]",
+    "embedding": [],
+    "roles": {
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "13": "through",
+      "49": "observation"
+    }
+  },
+  {
+    "symbol": "cycle",
+    "token": "[cycle]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 1
+    },
+    "paths": {
+      "43": "to",
+      "44": "from",
+      "64": "to"
+    }
+  },
+  {
+    "symbol": "decay",
+    "token": "[decay]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "43": "through"
+    }
+  },
+  {
+    "symbol": "depth",
+    "token": "[depth]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1,
+      "observation": 1
+    },
+    "paths": {
+      "7": "result",
+      "20": "observation",
+      "58": "to",
+      "59": "from"
+    }
+  },
+  {
+    "symbol": "design",
+    "token": "[design]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "17": "result"
+    }
+  },
+  {
+    "symbol": "determination",
+    "token": "[determination]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "45": "observation"
+    }
+  },
+  {
+    "symbol": "development",
+    "token": "[development]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "51": "result"
+    }
+  },
+  {
+    "symbol": "direction",
+    "token": "[direction]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "5": "observation"
+    }
+  },
+  {
+    "symbol": "discernment",
+    "token": "[discernment]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "18": "observation"
+    }
+  },
+  {
+    "symbol": "discipline",
+    "token": "[discipline]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "56": "result"
+    }
+  },
+  {
+    "symbol": "discovery",
+    "token": "[discovery]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "48": "through"
+    }
+  },
+  {
+    "symbol": "disruption",
+    "token": "[disruption]",
+    "embedding": [],
+    "roles": {
+      "through": 2
+    },
+    "paths": {
+      "28": "through",
+      "44": "through"
+    }
+  },
+  {
+    "symbol": "dissolution",
+    "token": "[dissolution]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "54": "through"
+    }
+  },
+  {
+    "symbol": "dissonance",
+    "token": "[dissonance]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "4": "through"
+    }
+  },
+  {
+    "symbol": "distinction",
+    "token": "[distinction]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "38": "observation"
+    }
+  },
+  {
+    "symbol": "distraction",
+    "token": "[distraction]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "56": "through"
+    }
+  },
+  {
+    "symbol": "disturbance",
+    "token": "[disturbance]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "41": "through"
+    }
+  },
+  {
+    "symbol": "division",
+    "token": "[division]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "36": "through"
+    }
+  },
+  {
+    "symbol": "doubt",
+    "token": "[doubt]",
+    "embedding": [],
+    "roles": {
+      "through": 2
+    },
+    "paths": {
+      "6": "through",
+      "49": "through"
+    }
+  },
+  {
+    "symbol": "echo",
+    "token": "[echo]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "3": "to",
+      "4": "from"
+    }
+  },
+  {
+    "symbol": "elegance",
+    "token": "[elegance]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "32": "to",
+      "33": "from"
+    }
+  },
+  {
+    "symbol": "embodiment",
+    "token": "[embodiment]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "34": "to",
+      "35": "from"
+    }
+  },
+  {
+    "symbol": "emergence",
+    "token": "[emergence]",
+    "embedding": [],
+    "roles": {
+      "result": 1,
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "26": "result",
+      "31": "observation",
+      "59": "through"
+    }
+  },
+  {
+    "symbol": "empowerment",
+    "token": "[empowerment]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "61": "result"
+    }
+  },
+  {
+    "symbol": "entropy",
+    "token": "[entropy]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "31": "through"
+    }
+  },
+  {
+    "symbol": "equilibrium",
+    "token": "[equilibrium]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "40": "observation"
+    }
+  },
+  {
+    "symbol": "evolution",
+    "token": "[evolution]",
+    "embedding": [],
+    "roles": {
+      "result": 3
+    },
+    "paths": {
+      "14": "result",
+      "25": "result",
+      "41": "result"
+    }
+  },
+  {
+    "symbol": "expansion",
+    "token": "[expansion]",
+    "embedding": [],
+    "roles": {
+      "through": 1,
+      "observation": 2
+    },
+    "paths": {
+      "25": "observation",
+      "51": "observation",
+      "57": "through"
+    }
+  },
+  {
+    "symbol": "experience",
+    "token": "[experience]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "34": "result"
+    }
+  },
+  {
+    "symbol": "exploration",
+    "token": "[exploration]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "49": "result"
+    }
+  },
+  {
+    "symbol": "familiarity",
+    "token": "[familiarity]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "8": "observation"
+    }
+  },
+  {
+    "symbol": "filter",
+    "token": "[filter]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "18": "to",
+      "19": "from"
+    }
+  },
+  {
+    "symbol": "flexibility",
+    "token": "[flexibility]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "28": "to",
+      "29": "from"
+    }
+  },
+  {
+    "symbol": "focus",
+    "token": "[focus]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "56": "to",
+      "57": "from"
+    }
+  },
+  {
+    "symbol": "fragment",
+    "token": "[fragment]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "1": "to",
+      "2": "from"
+    }
+  },
+  {
+    "symbol": "fragmentation",
+    "token": "[fragmentation]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "60": "through"
+    }
+  },
+  {
+    "symbol": "freedom",
+    "token": "[freedom]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "54": "result"
+    }
+  },
+  {
+    "symbol": "fulfillment",
+    "token": "[fulfillment]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1
+    },
+    "paths": {
+      "46": "to",
+      "47": "from",
+      "59": "result"
+    }
+  },
+  {
+    "symbol": "fusion",
+    "token": "[fusion]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "6": "result"
+    }
+  },
+  {
+    "symbol": "grace",
+    "token": "[grace]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "23": "observation"
+    }
+  },
+  {
+    "symbol": "growth",
+    "token": "[growth]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 2,
+      "observation": 1
+    },
+    "paths": {
+      "14": "observation",
+      "25": "to",
+      "26": "from",
+      "51": "to",
+      "52": "from"
+    }
+  },
+  {
+    "symbol": "harmony",
+    "token": "[harmony]",
+    "embedding": [],
+    "roles": {
+      "result": 1,
+      "observation": 3
+    },
+    "paths": {
+      "16": "observation",
+      "24": "observation",
+      "39": "result",
+      "53": "observation"
+    }
+  },
+  {
+    "symbol": "healing",
+    "token": "[healing]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "60": "to",
+      "61": "from"
+    }
+  },
+  {
+    "symbol": "homeostasis",
+    "token": "[homeostasis]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "40": "result"
+    }
+  },
+  {
+    "symbol": "hope",
+    "token": "[hope]",
+    "embedding": [],
+    "roles": {
+      "from": 1,
+      "through": 1
+    },
+    "paths": {
+      "1": "from",
+      "64": "through"
+    }
+  },
+  {
+    "symbol": "identity",
+    "token": "[identity]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "38": "result"
+    }
+  },
+  {
+    "symbol": "illumination",
+    "token": "[illumination]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "48": "observation"
+    }
+  },
+  {
+    "symbol": "immersion",
+    "token": "[immersion]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "58": "result"
+    }
+  },
+  {
+    "symbol": "impermanence",
+    "token": "[impermanence]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "43": "observation"
+    }
+  },
+  {
+    "symbol": "individuation",
+    "token": "[individuation]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "38": "to",
+      "39": "from"
+    }
+  },
+  {
+    "symbol": "innovation",
+    "token": "[innovation]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "29": "observation"
+    }
+  },
+  {
+    "symbol": "insight",
+    "token": "[insight]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 2
+    },
+    "paths": {
+      "33": "to",
+      "34": "from",
+      "50": "to",
+      "51": "from"
+    }
+  },
+  {
+    "symbol": "integration",
+    "token": "[integration]",
+    "embedding": [],
+    "roles": {
+      "result": 2,
+      "through": 2
+    },
+    "paths": {
+      "16": "through",
+      "24": "result",
+      "53": "through",
+      "60": "result"
+    }
+  },
+  {
+    "symbol": "intensity",
+    "token": "[intensity]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "58": "observation"
+    }
+  },
+  {
+    "symbol": "intention",
+    "token": "[intention]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "5": "result"
+    }
+  },
+  {
+    "symbol": "introspection",
+    "token": "[introspection]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "11": "through"
+    }
+  },
+  {
+    "symbol": "knowledge",
+    "token": "[knowledge]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "through": 1
+    },
+    "paths": {
+      "14": "through",
+      "48": "to",
+      "49": "from"
+    }
+  },
+  {
+    "symbol": "learning",
+    "token": "[learning]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "14": "to",
+      "15": "from"
+    }
+  },
+  {
+    "symbol": "letting go",
+    "token": "[letting go]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "54": "to",
+      "55": "from"
+    }
+  },
+  {
+    "symbol": "light",
+    "token": "[light]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "7": "through"
+    }
+  },
+  {
+    "symbol": "limit",
+    "token": "[limit]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "27": "through"
+    }
+  },
+  {
+    "symbol": "limitation",
+    "token": "[limitation]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "52": "through"
+    }
+  },
+  {
+    "symbol": "listening",
+    "token": "[listening]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "20": "to",
+      "21": "from"
+    }
+  },
+  {
+    "symbol": "loop",
+    "token": "[loop]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "10": "observation"
+    }
+  },
+  {
+    "symbol": "loss",
+    "token": "[loss]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "9": "observation"
+    }
+  },
+  {
+    "symbol": "manifestation",
+    "token": "[manifestation]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "34": "observation"
+    }
+  },
+  {
+    "symbol": "mastery",
+    "token": "[mastery]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "52": "result"
+    }
+  },
+  {
+    "symbol": "memory",
+    "token": "[memory]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "10": "to",
+      "11": "from"
+    }
+  },
+  {
+    "symbol": "merging",
+    "token": "[merging]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "37": "through"
+    }
+  },
+  {
+    "symbol": "mirror",
+    "token": "[mirror]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1
+    },
+    "paths": {
+      "2": "result",
+      "11": "to",
+      "12": "from"
+    }
+  },
+  {
+    "symbol": "mirroring",
+    "token": "[mirroring]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "8": "through"
+    }
+  },
+  {
+    "symbol": "noise",
+    "token": "[noise]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "through": 1
+    },
+    "paths": {
+      "4": "to",
+      "5": "from",
+      "18": "through"
+    }
+  },
+  {
+    "symbol": "obscurity",
+    "token": "[obscurity]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "33": "through"
+    }
+  },
+  {
+    "symbol": "openness",
+    "token": "[openness]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "62": "to",
+      "63": "from"
+    }
+  },
+  {
+    "symbol": "order",
+    "token": "[order]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "30": "to",
+      "31": "from"
+    }
+  },
+  {
+    "symbol": "origin",
+    "token": "[origin]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "3": "result"
+    }
+  },
+  {
+    "symbol": "paradox",
+    "token": "[paradox]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "6": "to",
+      "7": "from"
+    }
+  },
+  {
+    "symbol": "pattern",
+    "token": "[pattern]",
+    "embedding": [],
+    "roles": {
+      "observation": 2
+    },
+    "paths": {
+      "1": "observation",
+      "30": "observation"
+    }
+  },
+  {
+    "symbol": "peace",
+    "token": "[peace]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 2
+    },
+    "paths": {
+      "23": "result",
+      "24": "to",
+      "25": "from",
+      "63": "result"
+    }
+  },
+  {
+    "symbol": "perseverance",
+    "token": "[perseverance]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "45": "to",
+      "46": "from"
+    }
+  },
+  {
+    "symbol": "perspective",
+    "token": "[perspective]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1
+    },
+    "paths": {
+      "36": "to",
+      "37": "from",
+      "57": "result"
+    }
+  },
+  {
+    "symbol": "possibility",
+    "token": "[possibility]",
+    "embedding": [],
+    "roles": {
+      "result": 1,
+      "observation": 1
+    },
+    "paths": {
+      "17": "observation",
+      "29": "result"
+    }
+  },
+  {
+    "symbol": "precision",
+    "token": "[precision]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "52": "observation"
+    }
+  },
+  {
+    "symbol": "presence",
+    "token": "[presence]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 2,
+      "observation": 1
+    },
+    "paths": {
+      "12": "to",
+      "13": "from",
+      "35": "observation",
+      "55": "to",
+      "56": "from"
+    }
+  },
+  {
+    "symbol": "pressure",
+    "token": "[pressure]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "15": "observation"
+    }
+  },
+  {
+    "symbol": "purpose",
+    "token": "[purpose]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "47": "result"
+    }
+  },
+  {
+    "symbol": "question",
+    "token": "[question]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "13": "to",
+      "14": "from"
+    }
+  },
+  {
+    "symbol": "questioning",
+    "token": "[questioning]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "49": "to",
+      "50": "from"
+    }
+  },
+  {
+    "symbol": "reception",
+    "token": "[reception]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "20": "result"
+    }
+  },
+  {
+    "symbol": "receptivity",
+    "token": "[receptivity]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "62": "observation"
+    }
+  },
+  {
+    "symbol": "recognition",
+    "token": "[recognition]",
+    "embedding": [],
+    "roles": {
+      "result": 1,
+      "observation": 1
+    },
+    "paths": {
+      "2": "observation",
+      "8": "result"
+    }
+  },
+  {
+    "symbol": "refinement",
+    "token": "[refinement]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "observation": 1
+    },
+    "paths": {
+      "32": "observation",
+      "52": "to",
+      "53": "from"
+    }
+  },
+  {
+    "symbol": "reflection",
+    "token": "[reflection]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "through": 1
+    },
+    "paths": {
+      "8": "to",
+      "9": "from",
+      "35": "through"
+    }
+  },
+  {
+    "symbol": "relationship",
+    "token": "[relationship]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "39": "to",
+      "40": "from"
+    }
+  },
+  {
+    "symbol": "relativity",
+    "token": "[relativity]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "36": "observation"
+    }
+  },
+  {
+    "symbol": "release",
+    "token": "[release]",
+    "embedding": [],
+    "roles": {
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "23": "through",
+      "54": "observation"
+    }
+  },
+  {
+    "symbol": "renewal",
+    "token": "[renewal]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "42": "to",
+      "43": "from"
+    }
+  },
+  {
+    "symbol": "resilience",
+    "token": "[resilience]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "observation": 2
+    },
+    "paths": {
+      "27": "observation",
+      "41": "observation",
+      "61": "to",
+      "62": "from"
+    }
+  },
+  {
+    "symbol": "resistance",
+    "token": "[resistance]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "through": 1
+    },
+    "paths": {
+      "22": "to",
+      "23": "from",
+      "45": "through"
+    }
+  },
+  {
+    "symbol": "resonance",
+    "token": "[resonance]",
+    "embedding": [],
+    "roles": {
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "19": "through",
+      "39": "observation"
+    }
+  },
+  {
+    "symbol": "resourcefulness",
+    "token": "[resourcefulness]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "28": "result"
+    }
+  },
+  {
+    "symbol": "restoration",
+    "token": "[restoration]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "60": "observation"
+    }
+  },
+  {
+    "symbol": "return",
+    "token": "[return]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "64": "observation"
+    }
+  },
+  {
+    "symbol": "revelation",
+    "token": "[revelation]",
+    "embedding": [],
+    "roles": {
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "33": "observation",
+      "50": "through"
+    }
+  },
+  {
+    "symbol": "revival",
+    "token": "[revival]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "42": "observation"
+    }
+  },
+  {
+    "symbol": "satisfaction",
+    "token": "[satisfaction]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "46": "observation"
+    }
+  },
+  {
+    "symbol": "seeker",
+    "token": "[seeker]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1
+    },
+    "paths": {
+      "1": "result",
+      "2": "to",
+      "3": "from"
+    }
+  },
+  {
+    "symbol": "seeking",
+    "token": "[seeking]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1
+    },
+    "paths": {
+      "13": "result",
+      "47": "to",
+      "48": "from"
+    }
+  },
+  {
+    "symbol": "self",
+    "token": "[self]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "11": "result"
+    }
+  },
+  {
+    "symbol": "separation",
+    "token": "[separation]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "38": "through"
+    }
+  },
+  {
+    "symbol": "shadow",
+    "token": "[shadow]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "7": "to",
+      "8": "from"
+    }
+  },
+  {
+    "symbol": "shatter",
+    "token": "[shatter]",
+    "embedding": [],
+    "roles": {
+      "to": 1
+    },
+    "paths": {
+      "9": "to"
+    }
+  },
+  {
+    "symbol": "signal",
+    "token": "[signal]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "19": "to",
+      "20": "from"
+    }
+  },
+  {
+    "symbol": "silence",
+    "token": "[silence]",
+    "embedding": [],
+    "roles": {
+      "through": 2
+    },
+    "paths": {
+      "3": "through",
+      "20": "through"
+    }
+  },
+  {
+    "symbol": "simplicity",
+    "token": "[simplicity]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "32": "through"
+    }
+  },
+  {
+    "symbol": "spark",
+    "token": "[spark]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "13": "observation"
+    }
+  },
+  {
+    "symbol": "split",
+    "token": "[split]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "6": "observation"
+    }
+  },
+  {
+    "symbol": "stability",
+    "token": "[stability]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "27": "result"
+    }
+  },
+  {
+    "symbol": "stagnation",
+    "token": "[stagnation]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "42": "through"
+    }
+  },
+  {
+    "symbol": "stillness",
+    "token": "[stillness]",
+    "embedding": [],
+    "roles": {
+      "through": 2
+    },
+    "paths": {
+      "12": "through",
+      "55": "through"
+    }
+  },
+  {
+    "symbol": "strength",
+    "token": "[strength]",
+    "embedding": [],
+    "roles": {
+      "observation": 2
+    },
+    "paths": {
+      "19": "observation",
+      "61": "observation"
+    }
+  },
+  {
+    "symbol": "structure",
+    "token": "[structure]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "30": "result"
+    }
+  },
+  {
+    "symbol": "surrender",
+    "token": "[surrender]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 2
+    },
+    "paths": {
+      "23": "to",
+      "24": "from",
+      "63": "to",
+      "64": "from"
+    }
+  },
+  {
+    "symbol": "synthesis",
+    "token": "[synthesis]",
+    "embedding": [],
+    "roles": {
+      "to": 2,
+      "from": 2
+    },
+    "paths": {
+      "16": "to",
+      "17": "from",
+      "53": "to",
+      "54": "from"
+    }
+  },
+  {
+    "symbol": "system",
+    "token": "[system]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "31": "result"
+    }
+  },
+  {
+    "symbol": "tension",
+    "token": "[tension]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "through": 1
+    },
+    "paths": {
+      "15": "to",
+      "16": "from",
+      "40": "through"
+    }
+  },
+  {
+    "symbol": "threshold",
+    "token": "[threshold]",
+    "embedding": [],
+    "roles": {
+      "through": 1,
+      "observation": 1
+    },
+    "paths": {
+      "22": "observation",
+      "26": "through"
+    }
+  },
+  {
+    "symbol": "time",
+    "token": "[time]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "10": "through"
+    }
+  },
+  {
+    "symbol": "transcendence",
+    "token": "[transcendence]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "26": "observation"
+    }
+  },
+  {
+    "symbol": "transformation",
+    "token": "[transformation]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 2
+    },
+    "paths": {
+      "26": "to",
+      "27": "from",
+      "44": "result",
+      "62": "result"
+    }
+  },
+  {
+    "symbol": "transition",
+    "token": "[transition]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "44": "observation"
+    }
+  },
+  {
+    "symbol": "truth",
+    "token": "[truth]",
+    "embedding": [],
+    "roles": {
+      "through": 2
+    },
+    "paths": {
+      "2": "through",
+      "21": "through"
+    }
+  },
+  {
+    "symbol": "understanding",
+    "token": "[understanding]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 2
+    },
+    "paths": {
+      "21": "to",
+      "22": "from",
+      "36": "result",
+      "50": "result"
+    }
+  },
+  {
+    "symbol": "unity",
+    "token": "[unity]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1
+    },
+    "paths": {
+      "37": "to",
+      "38": "from"
+    }
+  },
+  {
+    "symbol": "unrest",
+    "token": "[unrest]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "4": "observation"
+    }
+  },
+  {
+    "symbol": "versatility",
+    "token": "[versatility]",
+    "embedding": [],
+    "roles": {
+      "observation": 1
+    },
+    "paths": {
+      "28": "observation"
+    }
+  },
+  {
+    "symbol": "vision",
+    "token": "[vision]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "17": "through"
+    }
+  },
+  {
+    "symbol": "vitality",
+    "token": "[vitality]",
+    "embedding": [],
+    "roles": {
+      "result": 1
+    },
+    "paths": {
+      "42": "result"
+    }
+  },
+  {
+    "symbol": "voice",
+    "token": "[voice]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1
+    },
+    "paths": {
+      "5": "to",
+      "6": "from",
+      "19": "result"
+    }
+  },
+  {
+    "symbol": "vulnerability",
+    "token": "[vulnerability]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "62": "through"
+    }
+  },
+  {
+    "symbol": "wholeness",
+    "token": "[wholeness]",
+    "embedding": [],
+    "roles": {
+      "to": 1,
+      "from": 1,
+      "result": 1,
+      "observation": 1
+    },
+    "paths": {
+      "12": "result",
+      "37": "observation",
+      "59": "to",
+      "60": "from"
+    }
+  },
+  {
+    "symbol": "wisdom",
+    "token": "[wisdom]",
+    "embedding": [],
+    "roles": {
+      "result": 3
+    },
+    "paths": {
+      "21": "result",
+      "33": "result",
+      "48": "result"
+    }
+  },
+  {
+    "symbol": "yearning",
+    "token": "[yearning]",
+    "embedding": [],
+    "roles": {
+      "through": 1
+    },
+    "paths": {
+      "47": "through"
+    }
+  }
+]
